@@ -12,6 +12,7 @@ Window {
         y: 50
         width: 100
         height: 100
+        radius: 20//모난부분을 둥글게
         color: "green"
     }
 }
