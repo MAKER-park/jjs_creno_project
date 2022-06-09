@@ -823,7 +823,11 @@ main.o: ../1_first_gui_application/main.cpp ../1_first_gui_application/mainwindo
 mainwindow.o: ../1_first_gui_application/mainwindow.cpp ../1_first_gui_application/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QRandomGenerator64 \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qrandom.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../1_first_gui_application/mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
