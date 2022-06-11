@@ -1,0 +1,85 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+		{
+			"type": "shell",
+			"label": "C bulid for clang",
+			"command": "clang",
+			"args": [
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}"
+			],
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"presentation": {
+				"clear": true
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		//clang++ -std=c++17 -stdlib=libc++ -g 
+		///Users/bagjaewan/Documents/GitHub/jjs_creno_project/opencv_study/vscode/main 
+		//-o /Users/bagjaewan/Documents/GitHub/jjs_creno_project/opencv_study/vscode/02.opencv_test_code/main -I/opt/homebrew/Cellar/opencv/4.5.5_2/include/opencv4/**
+		//g++ -std=c++11 `pkg-config opencv4 --libs --cflags opencv4` main.cpp -o output
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++ 활성 파일 빌드 for opencv",
+			"command": "/usr/bin/g++",
+			"args": [
+				// 기존의 기본 매개변수 구성.
+				//"-g",
+				// "${file}",
+				// "-o",
+				// "${fileDirname}/${fileBasenameNoExtension}",
+				//
+				
+				// 새롭게 구성 시작.
+				"-std=c++11",
+				"`pkg-config",
+				"opencv4",
+				"--libs",
+				"--cflags",
+				"opencv4`",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}"
+				// 새롭게 구성 끝.
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "컴파일러: /usr/bin/g++"
+		},		
+
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++ 활성 파일 빌드 for universal _without window",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "컴파일러: /usr/bin/g++"
+		}
+	]
+}

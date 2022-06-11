@@ -1,0 +1,3 @@
+/Users/bagjaewan/Documents/GitHub/jjs_creno_project/opencv_study/vscode/02.opencv_test_code/CMakeFiles/02.opencv_test_code.dir
+/Users/bagjaewan/Documents/GitHub/jjs_creno_project/opencv_study/vscode/02.opencv_test_code/CMakeFiles/edit_cache.dir
+/Users/bagjaewan/Documents/GitHub/jjs_creno_project/opencv_study/vscode/02.opencv_test_code/CMakeFiles/rebuild_cache.dir
