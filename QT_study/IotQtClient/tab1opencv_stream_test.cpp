@@ -6,9 +6,14 @@ tab1opencv_stream_test::tab1opencv_stream_test(QWidget *parent) :
     ui(new Ui::tab1opencv_stream_test)
 {
     ui->setupUi(this);
+    connect(ui->pPB_Start,SIGNAL(clicked()),this,SLOT(slot_video()));
 }
 
 tab1opencv_stream_test::~tab1opencv_stream_test()
 {
     delete ui;
+}
+
+void tab1opencv_stream_test::slot_video(){
+    qDebug()<<"start video!!";
 }

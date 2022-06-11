@@ -101,6 +101,13 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="pPB_Start">
+       <property name="text">
+        <string>start</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="pushButton_3">
        <property name="text">
         <string>pasue</string>

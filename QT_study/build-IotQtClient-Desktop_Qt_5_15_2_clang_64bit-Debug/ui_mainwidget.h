@@ -27,6 +27,8 @@ public:
     QWidget *pTab2;
     QWidget *pTab3;
     QWidget *pTab4;
+    QWidget *pTab5;
+    QWidget *pTab6;
     QPushButton *pPB_EXIT;
 
     void setupUi(QWidget *MainWidget)
@@ -50,6 +52,12 @@ public:
         pTab4 = new QWidget();
         pTab4->setObjectName(QString::fromUtf8("pTab4"));
         tabWidget->addTab(pTab4, QString());
+        pTab5 = new QWidget();
+        pTab5->setObjectName(QString::fromUtf8("pTab5"));
+        tabWidget->addTab(pTab5, QString());
+        pTab6 = new QWidget();
+        pTab6->setObjectName(QString::fromUtf8("pTab6"));
+        tabWidget->addTab(pTab6, QString());
 
         verticalLayout->addWidget(tabWidget);
 
@@ -64,7 +72,7 @@ public:
 
         retranslateUi(MainWidget);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(5);
 
 
         QMetaObject::connectSlotsByName(MainWidget);
@@ -73,10 +81,12 @@ public:
     void retranslateUi(QWidget *MainWidget)
     {
         MainWidget->setWindowTitle(QCoreApplication::translate("MainWidget", "MainWidget", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(pTab1), QCoreApplication::translate("MainWidget", "Tab 1", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(pTab2), QCoreApplication::translate("MainWidget", "Tab 2", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(pTab3), QCoreApplication::translate("MainWidget", "Tab 3", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(pTab4), QCoreApplication::translate("MainWidget", "tab 4", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(pTab1), QCoreApplication::translate("MainWidget", "opencv test", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(pTab2), QCoreApplication::translate("MainWidget", "server connect", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(pTab3), QCoreApplication::translate("MainWidget", "contorl", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(pTab4), QCoreApplication::translate("MainWidget", "sensordisplay", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(pTab5), QCoreApplication::translate("MainWidget", "chart", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(pTab6), QCoreApplication::translate("MainWidget", "DB", nullptr));
         pPB_EXIT->setText(QCoreApplication::translate("MainWidget", "EXIT", nullptr));
     } // retranslateUi
 

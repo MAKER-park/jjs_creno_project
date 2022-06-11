@@ -2,6 +2,10 @@
 #define TAB1OPENCV_STREAM_TEST_H
 
 #include <QWidget>
+#include <QTimer>
+#include <QtDebug>
+#include <iostream>
+
 
 namespace Ui {
 class tab1opencv_stream_test;
@@ -17,6 +21,10 @@ public:
 
 private:
     Ui::tab1opencv_stream_test *ui;
+
+private slots:
+    void slot_video();
+
 };
 
 #endif // TAB1OPENCV_STREAM_TEST_H

@@ -7,6 +7,8 @@
 #include "tab2socketclient.h"
 #include "tab3controlpannel.h"
 #include "tab4sensordisplay.h"
+#include "tab5_chart.h"
+#include "tab6_db_view.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWidget; }
@@ -26,6 +28,8 @@ private:
     Tab2SocketClient* pTab2SocketClient;
     tab3ControlPannel* ptab3ControlPannel;
     tab4SensorDisplay* ptab4Sensordisplay;
+    tab5_chart* ptab5_chart;
+    tab6_DB_View* ptab6_DB;
 
 private slots:
 //    void exit();

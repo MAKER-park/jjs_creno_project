@@ -37,6 +37,8 @@ signals:
     void sigSocketRecv(QString);
     void sigTab3RecvData(QString);
     void sigTab4RecvData(QString);
+    void sigTab5RecvData(QString);
+    void sigTab6RecvData(QString);
 };
 
 #endif // TAB2SOCKETCLIENT_H

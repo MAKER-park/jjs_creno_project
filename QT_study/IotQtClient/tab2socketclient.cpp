@@ -58,13 +58,18 @@ void Tab2SocketClient::slotSocketRecvUpdate(QString msg){
 
     if(msg.indexOf("LAMP") != -1 || msg.indexOf("GAS") != -1 ){//indexof 단어가 있으면 1 없으면 -1
        //tab2->tab3 ui changer
+        //check current tab index
+
         emit sigTab3RecvData(msg);
     }
 
     if(msg.indexOf("SENSOR") != -1){
 //       qDebug() << "ffff";
        //emit sigTab4RecvData
-       emit sigTab4RecvData(msg);
+        //check current tab index
+        emit sigTab4RecvData(msg);
+        emit sigTab5RecvData(msg);
+        emit sigTab6RecvData(msg);
     }
 
     msg = "["+str_time+"]"+msg;

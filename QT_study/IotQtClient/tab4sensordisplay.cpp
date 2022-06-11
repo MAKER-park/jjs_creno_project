@@ -17,9 +17,9 @@ void tab4SensorDisplay::slotTab4RecvData(QString msg){
         msg.replace("[","@");//문자 치환
         msg.replace("]","@");//문자 치환
         QStringList qlist = msg.split("@");//문자 자르기 @12@13 -> (12,13)
-        qDebug()<<qlist[3];//lux
-        qDebug()<<qlist[4];//tmp
-        qDebug()<<qlist[5];//hum
+//        qDebug()<<qlist[3];//lux
+//        qDebug()<<qlist[4];//tmp
+//        qDebug()<<qlist[5];//hum
 
         //init
 //        ui->pLB_LUX->clear();

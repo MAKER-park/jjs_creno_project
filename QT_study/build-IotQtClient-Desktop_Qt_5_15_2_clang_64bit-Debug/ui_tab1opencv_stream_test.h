@@ -38,6 +38,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
+    QPushButton *pPB_Start;
     QPushButton *pushButton_3;
     QToolButton *toolButton;
 
@@ -120,6 +121,11 @@ public:
 
         horizontalLayout->addWidget(pushButton_2);
 
+        pPB_Start = new QPushButton(tab1opencv_stream_test);
+        pPB_Start->setObjectName(QString::fromUtf8("pPB_Start"));
+
+        horizontalLayout->addWidget(pPB_Start);
+
         pushButton_3 = new QPushButton(tab1opencv_stream_test);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
 
@@ -146,6 +152,7 @@ public:
         label_2->setText(QCoreApplication::translate("tab1opencv_stream_test", "Y", nullptr));
         pushButton->setText(QCoreApplication::translate("tab1opencv_stream_test", "recorde", nullptr));
         pushButton_2->setText(QCoreApplication::translate("tab1opencv_stream_test", "capture", nullptr));
+        pPB_Start->setText(QCoreApplication::translate("tab1opencv_stream_test", "start", nullptr));
         pushButton_3->setText(QCoreApplication::translate("tab1opencv_stream_test", "pasue", nullptr));
         toolButton->setText(QCoreApplication::translate("tab1opencv_stream_test", "...", nullptr));
     } // retranslateUi

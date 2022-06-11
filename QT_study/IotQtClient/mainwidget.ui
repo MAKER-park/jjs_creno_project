@@ -17,26 +17,36 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="pTab1">
       <attribute name="title">
-       <string>Tab 1</string>
+       <string>opencv test</string>
       </attribute>
      </widget>
      <widget class="QWidget" name="pTab2">
       <attribute name="title">
-       <string>Tab 2</string>
+       <string>server connect</string>
       </attribute>
      </widget>
      <widget class="QWidget" name="pTab3">
       <attribute name="title">
-       <string>Tab 3</string>
+       <string>contorl</string>
       </attribute>
      </widget>
      <widget class="QWidget" name="pTab4">
       <attribute name="title">
-       <string>tab 4</string>
+       <string>sensordisplay</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="pTab5">
+      <attribute name="title">
+       <string>chart</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="pTab6">
+      <attribute name="title">
+       <string>DB</string>
       </attribute>
      </widget>
     </widget>

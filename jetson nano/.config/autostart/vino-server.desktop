@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/lib/vino/vino-server
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Vino VNsudo nano /usr/share/glib-2.0/schemas/org.gnome.Vino.gschema.xmlC Server\n\n
+Name=Vino VNsudo nano /usr/share/glib-2.0/schemas/org.gnome.Vino.gschema.xmlC Server\n\n
+Comment[en_US]=dfdfdfd
+Comment=dfdfdfd
