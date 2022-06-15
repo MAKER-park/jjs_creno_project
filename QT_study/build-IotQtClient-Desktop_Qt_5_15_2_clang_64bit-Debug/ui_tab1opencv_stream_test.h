@@ -11,11 +11,11 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QToolButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -27,7 +27,7 @@ class Ui_tab1opencv_stream_test
 public:
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_4;
-    QGraphicsView *graphicsView;
+    QLabel *label_3;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label;
@@ -35,6 +35,7 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_2;
     QLCDNumber *lcdNumber_2;
+    QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
@@ -51,14 +52,14 @@ public:
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        graphicsView = new QGraphicsView(tab1opencv_stream_test);
-        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+        label_3 = new QLabel(tab1opencv_stream_test);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
 
-        horizontalLayout_4->addWidget(graphicsView);
+        horizontalLayout_4->addWidget(label_3);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(-1, -1, -1, 180);
+        verticalLayout->setContentsMargins(-1, -1, -1, 0);
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label = new QLabel(tab1opencv_stream_test);
@@ -101,10 +102,14 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_3);
 
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer);
+
 
         horizontalLayout_4->addLayout(verticalLayout);
 
-        horizontalLayout_4->setStretch(0, 9);
+        horizontalLayout_4->setStretch(0, 8);
         horizontalLayout_4->setStretch(1, 2);
 
         verticalLayout_2->addLayout(horizontalLayout_4);
@@ -139,6 +144,7 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout);
 
+        verticalLayout_2->setStretch(0, 2);
 
         retranslateUi(tab1opencv_stream_test);
 
@@ -148,6 +154,7 @@ public:
     void retranslateUi(QWidget *tab1opencv_stream_test)
     {
         tab1opencv_stream_test->setWindowTitle(QCoreApplication::translate("tab1opencv_stream_test", "Form", nullptr));
+        label_3->setText(QString());
         label->setText(QCoreApplication::translate("tab1opencv_stream_test", "X", nullptr));
         label_2->setText(QCoreApplication::translate("tab1opencv_stream_test", "Y", nullptr));
         pushButton->setText(QCoreApplication::translate("tab1opencv_stream_test", "recorde", nullptr));

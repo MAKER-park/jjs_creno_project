@@ -17,3 +17,9 @@ tab1opencv_stream_test::~tab1opencv_stream_test()
 void tab1opencv_stream_test::slot_video(){
     qDebug()<<"start video!!";
 }
+
+void tab1opencv_stream_test::on_pPB_Start_clicked()
+{
+
+}
+

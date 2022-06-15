@@ -9,7 +9,7 @@ MainWidget::MainWidget(QWidget *parent)
     , ui(new Ui::MainWidget)
 {
     ui->setupUi(this);
-    ui->tabWidget->setCurrentIndex(5);// 2:tab3 open
+    ui->tabWidget->setCurrentIndex(0);// 2:tab3 open
 
     //set tab6 ui connect
     ptab6_DB = new tab6_DB_View(ui->pTab6);

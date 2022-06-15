@@ -5,6 +5,13 @@
 #include <QImage>
 #include <QThread>
 #include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/core/core.hpp>
+#include <iostream>
+
+using namespace std;
+using namespace cv;
+
 
 class video_stream : public QThread//
 {
@@ -12,13 +19,23 @@ class video_stream : public QThread//
 public:
     video_stream(QObject *parent = nullptr);
 
-//    QPixmap pixmap() const{
-//        return mPixmap;
-//    }
+    QPixmap pixmap() const{
+        return mPixmap;
+    }
+
 signals:
-//    QPixmap mPixmap;
+    void newPixmapCaptured();
+private :
+    QPixmap mPixmap;
+//    cv::Mat imag;
+//    imag = imread("/Users/bagjaewan/Desktop/test.png");
+
+
 //    cv::Mat mFrame;
 //    cv::VideoCapture mVideoCap;
+
+//    QImage cvMatToQImage(const cv::Mat &inMat);
+//    QPixmap cvMatToQPixmap(const cv::Mat &inMat);
 };
 
 #endif // VIDEO_STREAM_H

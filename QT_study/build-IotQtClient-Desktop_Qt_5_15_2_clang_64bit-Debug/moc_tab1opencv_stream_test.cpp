@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_tab1opencv_stream_test_t {
-    QByteArrayData data[3];
-    char stringdata0[35];
+    QByteArrayData data[4];
+    char stringdata0[56];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,10 +34,12 @@ static const qt_meta_stringdata_tab1opencv_stream_test_t qt_meta_stringdata_tab1
     {
 QT_MOC_LITERAL(0, 0, 22), // "tab1opencv_stream_test"
 QT_MOC_LITERAL(1, 23, 10), // "slot_video"
-QT_MOC_LITERAL(2, 34, 0) // ""
+QT_MOC_LITERAL(2, 34, 0), // ""
+QT_MOC_LITERAL(3, 35, 20) // "on_pPB_Start_clicked"
 
     },
-    "tab1opencv_stream_test\0slot_video\0"
+    "tab1opencv_stream_test\0slot_video\0\0"
+    "on_pPB_Start_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -47,7 +49,7 @@ static const uint qt_meta_data_tab1opencv_stream_test[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -55,9 +57,11 @@ static const uint qt_meta_data_tab1opencv_stream_test[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x08 /* Private */,
+       1,    0,   24,    2, 0x08 /* Private */,
+       3,    0,   25,    2, 0x08 /* Private */,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -70,6 +74,7 @@ void tab1opencv_stream_test::qt_static_metacall(QObject *_o, QMetaObject::Call _
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->slot_video(); break;
+        case 1: _t->on_pPB_Start_clicked(); break;
         default: ;
         }
     }
@@ -105,13 +110,13 @@ int tab1opencv_stream_test::qt_metacall(QMetaObject::Call _c, int _id, void **_a
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 2)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }

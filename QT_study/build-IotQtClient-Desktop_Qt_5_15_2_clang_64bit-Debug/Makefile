@@ -994,6 +994,11 @@ moc_tab6_db_view.cpp: ../IotQtClient/tab6_db_view.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers/QSqlError \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QDate \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTime \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers/QDateTimeAxis \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers/qdatetimeaxis.h \
 		moc_predefs.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
 	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/opt/homebrew/opt/opencv@4/include/opencv4 -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/tab6_db_view.h -o moc_tab6_db_view.cpp
@@ -1334,6 +1339,11 @@ tab6_db_view.o: ../IotQtClient/tab6_db_view.cpp ../IotQtClient/tab6_db_view.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers/QSqlError \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QDate \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTime \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers/QDateTimeAxis \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers/qdatetimeaxis.h \
 		ui_tab6_db_view.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tab6_db_view.o ../IotQtClient/tab6_db_view.cpp
 

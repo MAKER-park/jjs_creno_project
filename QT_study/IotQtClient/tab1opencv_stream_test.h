@@ -24,7 +24,7 @@ private:
 
 private slots:
     void slot_video();
-
+    void on_pPB_Start_clicked();
 };
 
 #endif // TAB1OPENCV_STREAM_TEST_H
