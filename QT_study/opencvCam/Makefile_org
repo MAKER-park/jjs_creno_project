@@ -1,0 +1,16 @@
+CC:=g++
+
+TARGET=opencvCam
+OBJECT=$(TARGET).o 
+
+#LDFLAGS=-D_REENTRANT -pthread 
+LDFLAGS= `pkg-config opencv --cflags --libs`
+
+all : $(TARGET) 
+
+$(TARGET):$(OBJECT)
+	$(CC) -o $@ $(OBJECT) $(LDFLAGS)
+%.o:%.c
+	$(CC) -c -o $@ $<
+clean:
+	rm -f *.o $(TARGET) 

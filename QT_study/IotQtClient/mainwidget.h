@@ -3,7 +3,7 @@
 
 #include <QWidget>
 //#include <tab2socketclient.h>
-#include "tab1opencv_stream_test.h"
+#include "tab1_stream.h"
 #include "tab2socketclient.h"
 #include "tab3controlpannel.h"
 #include "tab4sensordisplay.h"

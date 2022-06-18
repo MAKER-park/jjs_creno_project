@@ -21,7 +21,8 @@ int main() {
 	Mat kernel = getStructuringElement(MORPH_RECT, Size(3, 3));
 	dilate(imgCanny, imgDil, kernel);
 	erode(imgDil, imgErode, kernel);
- 
+	rotate(img,img,ROTATE_180);
+	
 	imshow("Image", img);
 	imshow("Image Gray", imgGray);
 	imshow("Image Blur", imgBlur);

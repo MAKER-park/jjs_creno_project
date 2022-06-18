@@ -9,7 +9,7 @@
   ///////////////// Webcam ////////////////////// not test yet!
  
 int main() {
-    VideoCapture cap("http://cloud.park-cloud.co19.kr:8001/");
+    VideoCapture cap("http://cloud.park-cloud.co19.kr:8002/");
     Mat img;
     while (true) {
     cap.read(img);
