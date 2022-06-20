@@ -2,8 +2,7 @@
 #define MAINWIDGET_H
 
 #include <QWidget>
-//#include <tab2socketclient.h>
-#include "tab1_stream.h"
+#include "web_view_cam.h"
 #include "tab2socketclient.h"
 #include "tab3controlpannel.h"
 #include "tab4sensordisplay.h"
@@ -24,7 +23,7 @@ public:
 private:
     Ui::MainWidget *ui;
     //tab1_custom
-    tab1opencv_stream_test* ptab1opencv_stream_test;
+    web_view_cam* pTab1webView;
     Tab2SocketClient* pTab2SocketClient;
     tab3ControlPannel* ptab3ControlPannel;
     tab4SensorDisplay* ptab4Sensordisplay;

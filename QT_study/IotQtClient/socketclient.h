@@ -16,9 +16,11 @@ class SocketClient : public QWidget
 private:
     QTcpSocket *pQTcpSocket;
     QString SERVERIP = "cloud.park-cloud.co19.kr";
-    int SERVERPOT = 5000;
+    int SERVERPOT = 9001;
     QString LOGID = "21";
     QString LOGPW = "PASSWD";
+//    QString LOGID = "";
+//    QString LOGPW = "";
 public:
 	SocketClient(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	~SocketClient();

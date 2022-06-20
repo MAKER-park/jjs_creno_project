@@ -12,31 +12,31 @@ SOURCES += \
     main.cpp \
     mainwidget.cpp \
     socketclient.cpp \
-    tab1_stream.cpp \
     tab2socketclient.cpp \
     tab3controlpannel.cpp \
     tab4sensordisplay.cpp \
     tab5_chart.cpp \
-    tab6_db_view.cpp
+    tab6_db_view.cpp \
+    web_view_cam.cpp
 
 HEADERS += \
     mainwidget.h \
     socketclient.h \
-    tab1_stream.h \
     tab2socketclient.h \
     tab3controlpannel.h \
     tab4sensordisplay.h \
     tab5_chart.h \
-    tab6_db_view.h
+    tab6_db_view.h \
+    web_view_cam.h
 
 FORMS += \
     mainwidget.ui \
-    tab1_stream.ui \
     tab2socketclient.ui \
     tab3controlpannel.ui \
     tab4sensordisplay.ui \
     tab5_chart.ui \
-    tab6_db_view.ui
+    tab6_db_view.ui \
+    web_view_cam.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -31,13 +31,15 @@ void SocketClient::slotConnectToServer(bool& ok){
 }
 void SocketClient::slotConnectServer()
 {
-    QString Str = "["+LOGID+":"+LOGPW+"]";
+    //QString Str = "["+LOGID+":"+LOGPW+"]";
+    QString Str = "";
     QByteArray byteStr = Str.toLocal8Bit();
     pQTcpSocket->write(byteStr);
 }
 
 void SocketClient::slotClosedByServer()
 {
+
 	pQTcpSocket->close();
 }
 

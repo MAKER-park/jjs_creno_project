@@ -22,7 +22,7 @@ int main() {
     VideoCapture cap("/Users/bagjaewan/Documents/GitHub/jjs_creno_project/opencv_study/vscode/04.access_camera/test.mp4");
     Mat img;
     while (true) {
-    cap.read(img);
+    cap.read(img); 
     imshow("Image", img);
     waitKey(1);
     }

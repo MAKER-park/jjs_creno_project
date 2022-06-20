@@ -47,8 +47,8 @@ MainWidget::MainWidget(QWidget *parent)
     connect(pTab2SocketClient, SIGNAL(sigTab3RecvData(QString)), ptab3ControlPannel, SLOT(slotTab3RecvData(QString)));
 //------------------tab connection------------------------//
     //set tab1 ui connect
-    ptab1opencv_stream_test = new tab1opencv_stream_test(ui->pTab1);
-    ui->pTab1->setLayout(ptab1opencv_stream_test->layout());
+    pTab1webView = new web_view_cam(ui->pTab1);
+    ui->pTab1->setLayout(pTab1webView->layout());
 
 
     //exit button

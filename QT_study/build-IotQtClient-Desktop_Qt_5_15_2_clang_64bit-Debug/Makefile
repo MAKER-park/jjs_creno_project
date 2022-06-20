@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-DEFINES       = -DQT_QML_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_CHARTS_LIB -DQT_WEBENGINEWIDGETS_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_WEBENGINECORE_LIB -DQT_QUICK_LIB -DQT_GUI_LIB -DQT_QMLMODELS_LIB -DQT_WEBCHANNEL_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_POSITIONING_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=10.13 -Wall -Wextra -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=10.13 -Wall -Wextra -fPIC $(DEFINES)
-INCPATH       = -I../IotQtClient -I. -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib
+INCPATH       = -I../IotQtClient -I. -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib
 QMAKE         = /Users/bagjaewan/Applications/5.15.2/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = IotQtClient1.0.0
 DISTDIR = /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/.tmp/IotQtClient1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=10.13 -Wl,-rpath,@executable_path/../Frameworks -Wl,-rpath,/Users/bagjaewan/Applications/5.15.2/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib -framework QtCharts -framework QtWidgets -framework QtGui -framework AppKit -framework Metal -framework QtNetwork -framework QtSql -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL   
+LIBS          = $(SUBLIBS) -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib -framework QtCharts -framework QtWebEngineWidgets -framework QtPrintSupport -framework QtWidgets -framework QtWebEngineCore -framework QtQuick -framework QtGui -framework AppKit -framework Metal -framework QtQmlModels -framework QtWebChannel -framework QtQml -framework QtNetwork -framework QtSql -framework QtPositioning -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL   
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -55,38 +55,38 @@ OBJECTS_DIR   = ./
 SOURCES       = ../IotQtClient/main.cpp \
 		../IotQtClient/mainwidget.cpp \
 		../IotQtClient/socketclient.cpp \
-		../IotQtClient/tab1opencv_stream_test.cpp \
 		../IotQtClient/tab2socketclient.cpp \
 		../IotQtClient/tab3controlpannel.cpp \
 		../IotQtClient/tab4sensordisplay.cpp \
 		../IotQtClient/tab5_chart.cpp \
-		../IotQtClient/tab6_db_view.cpp qrc_IotQtClient.cpp \
+		../IotQtClient/tab6_db_view.cpp \
+		../IotQtClient/web_view_cam.cpp qrc_IotQtClient.cpp \
 		moc_mainwidget.cpp \
 		moc_socketclient.cpp \
-		moc_tab1opencv_stream_test.cpp \
 		moc_tab2socketclient.cpp \
 		moc_tab3controlpannel.cpp \
 		moc_tab4sensordisplay.cpp \
 		moc_tab5_chart.cpp \
-		moc_tab6_db_view.cpp
+		moc_tab6_db_view.cpp \
+		moc_web_view_cam.cpp
 OBJECTS       = main.o \
 		mainwidget.o \
 		socketclient.o \
-		tab1opencv_stream_test.o \
 		tab2socketclient.o \
 		tab3controlpannel.o \
 		tab4sensordisplay.o \
 		tab5_chart.o \
 		tab6_db_view.o \
+		web_view_cam.o \
 		qrc_IotQtClient.o \
 		moc_mainwidget.o \
 		moc_socketclient.o \
-		moc_tab1opencv_stream_test.o \
 		moc_tab2socketclient.o \
 		moc_tab3controlpannel.o \
 		moc_tab4sensordisplay.o \
 		moc_tab5_chart.o \
-		moc_tab6_db_view.o
+		moc_tab6_db_view.o \
+		moc_web_view_cam.o
 DIST          = /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/qdevice.pri \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/device_config.prf \
@@ -298,20 +298,20 @@ DIST          = /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/s
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/lex.prf \
 		../IotQtClient/IotQtClient.pro ../IotQtClient/mainwidget.h \
 		../IotQtClient/socketclient.h \
-		../IotQtClient/tab1opencv_stream_test.h \
 		../IotQtClient/tab2socketclient.h \
 		../IotQtClient/tab3controlpannel.h \
 		../IotQtClient/tab4sensordisplay.h \
 		../IotQtClient/tab5_chart.h \
-		../IotQtClient/tab6_db_view.h ../IotQtClient/main.cpp \
+		../IotQtClient/tab6_db_view.h \
+		../IotQtClient/web_view_cam.h ../IotQtClient/main.cpp \
 		../IotQtClient/mainwidget.cpp \
 		../IotQtClient/socketclient.cpp \
-		../IotQtClient/tab1opencv_stream_test.cpp \
 		../IotQtClient/tab2socketclient.cpp \
 		../IotQtClient/tab3controlpannel.cpp \
 		../IotQtClient/tab4sensordisplay.cpp \
 		../IotQtClient/tab5_chart.cpp \
-		../IotQtClient/tab6_db_view.cpp
+		../IotQtClient/tab6_db_view.cpp \
+		../IotQtClient/web_view_cam.cpp
 QMAKE_TARGET  = IotQtClient
 DESTDIR       = 
 TARGET        = IotQtClient.app/Contents/MacOS/IotQtClient
@@ -330,7 +330,7 @@ include /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/mac/sdk.m
 first: all
 ####### Build rules
 
-IotQtClient.app/Contents/MacOS/IotQtClient: ui_mainwidget.h ui_tab1opencv_stream_test.h ui_tab2socketclient.h ui_tab3controlpannel.h ui_tab4sensordisplay.h ui_tab5_chart.h ui_tab6_db_view.h $(OBJECTS)  
+IotQtClient.app/Contents/MacOS/IotQtClient: ui_mainwidget.h ui_tab2socketclient.h ui_tab3controlpannel.h ui_tab4sensordisplay.h ui_tab5_chart.h ui_tab6_db_view.h ui_web_view_cam.h $(OBJECTS)  
 	@test -d IotQtClient.app/Contents/MacOS/ || mkdir -p IotQtClient.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -546,10 +546,18 @@ Makefile: ../IotQtClient/IotQtClient.pro /Users/bagjaewan/Applications/5.15.2/cl
 		../IotQtClient/IotQtClient.pro \
 		../IotQtClient/IotQtClient.qrc \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Resources/QtCharts.prl \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Resources/QtWebEngineWidgets.prl \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Resources/QtPrintSupport.prl \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Resources/QtWidgets.prl \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Resources/QtWebEngineCore.prl \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Resources/QtQuick.prl \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Resources/QtGui.prl \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Resources/QtQmlModels.prl \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Resources/QtWebChannel.prl \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Resources/QtQml.prl \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Resources/QtNetwork.prl \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Resources/QtSql.prl \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Resources/QtPositioning.prl \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Resources/QtCore.prl
 	$(QMAKE) -o Makefile ../IotQtClient/IotQtClient.pro -spec macx-clang CONFIG+=debug CONFIG+=qml_debug
 /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/spec_pre.prf:
@@ -764,10 +772,18 @@ Makefile: ../IotQtClient/IotQtClient.pro /Users/bagjaewan/Applications/5.15.2/cl
 ../IotQtClient/IotQtClient.pro:
 ../IotQtClient/IotQtClient.qrc:
 /Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Resources/QtCharts.prl:
+/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Resources/QtWebEngineWidgets.prl:
+/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Resources/QtPrintSupport.prl:
 /Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Resources/QtWidgets.prl:
+/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Resources/QtWebEngineCore.prl:
+/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Resources/QtQuick.prl:
 /Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Resources/QtGui.prl:
+/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Resources/QtQmlModels.prl:
+/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Resources/QtWebChannel.prl:
+/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Resources/QtQml.prl:
 /Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Resources/QtNetwork.prl:
 /Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Resources/QtSql.prl:
+/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Resources/QtPositioning.prl:
 /Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Resources/QtCore.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../IotQtClient/IotQtClient.pro -spec macx-clang CONFIG+=debug CONFIG+=qml_debug
@@ -800,9 +816,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../IotQtClient/IotQtClient.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../IotQtClient/mainwidget.h ../IotQtClient/socketclient.h ../IotQtClient/tab1opencv_stream_test.h ../IotQtClient/tab2socketclient.h ../IotQtClient/tab3controlpannel.h ../IotQtClient/tab4sensordisplay.h ../IotQtClient/tab5_chart.h ../IotQtClient/tab6_db_view.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../IotQtClient/main.cpp ../IotQtClient/mainwidget.cpp ../IotQtClient/socketclient.cpp ../IotQtClient/tab1opencv_stream_test.cpp ../IotQtClient/tab2socketclient.cpp ../IotQtClient/tab3controlpannel.cpp ../IotQtClient/tab4sensordisplay.cpp ../IotQtClient/tab5_chart.cpp ../IotQtClient/tab6_db_view.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../IotQtClient/mainwidget.ui ../IotQtClient/tab1opencv_stream_test.ui ../IotQtClient/tab2socketclient.ui ../IotQtClient/tab3controlpannel.ui ../IotQtClient/tab4sensordisplay.ui ../IotQtClient/tab5_chart.ui ../IotQtClient/tab6_db_view.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../IotQtClient/mainwidget.h ../IotQtClient/socketclient.h ../IotQtClient/tab2socketclient.h ../IotQtClient/tab3controlpannel.h ../IotQtClient/tab4sensordisplay.h ../IotQtClient/tab5_chart.h ../IotQtClient/tab6_db_view.h ../IotQtClient/web_view_cam.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../IotQtClient/main.cpp ../IotQtClient/mainwidget.cpp ../IotQtClient/socketclient.cpp ../IotQtClient/tab2socketclient.cpp ../IotQtClient/tab3controlpannel.cpp ../IotQtClient/tab4sensordisplay.cpp ../IotQtClient/tab5_chart.cpp ../IotQtClient/tab6_db_view.cpp ../IotQtClient/web_view_cam.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../IotQtClient/mainwidget.ui ../IotQtClient/tab2socketclient.ui ../IotQtClient/tab3controlpannel.ui ../IotQtClient/tab4sensordisplay.ui ../IotQtClient/tab5_chart.ui ../IotQtClient/tab6_db_view.ui ../IotQtClient/web_view_cam.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -848,20 +864,18 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=10.13 -Wall -Wextra -dM -E -o moc_predefs.h /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwidget.cpp moc_socketclient.cpp moc_tab1opencv_stream_test.cpp moc_tab2socketclient.cpp moc_tab3controlpannel.cpp moc_tab4sensordisplay.cpp moc_tab5_chart.cpp moc_tab6_db_view.cpp
+compiler_moc_header_make_all: moc_mainwidget.cpp moc_socketclient.cpp moc_tab2socketclient.cpp moc_tab3controlpannel.cpp moc_tab4sensordisplay.cpp moc_tab5_chart.cpp moc_tab6_db_view.cpp moc_web_view_cam.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwidget.cpp moc_socketclient.cpp moc_tab1opencv_stream_test.cpp moc_tab2socketclient.cpp moc_tab3controlpannel.cpp moc_tab4sensordisplay.cpp moc_tab5_chart.cpp moc_tab6_db_view.cpp
+	-$(DEL_FILE) moc_mainwidget.cpp moc_socketclient.cpp moc_tab2socketclient.cpp moc_tab3controlpannel.cpp moc_tab4sensordisplay.cpp moc_tab5_chart.cpp moc_tab6_db_view.cpp moc_web_view_cam.cpp
 moc_mainwidget.cpp: ../IotQtClient/mainwidget.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../IotQtClient/tab1opencv_stream_test.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../IotQtClient/web_view_cam.h \
 		../IotQtClient/tab2socketclient.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTime \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../IotQtClient/socketclient.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
@@ -889,7 +903,7 @@ moc_mainwidget.cpp: ../IotQtClient/mainwidget.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
 		moc_predefs.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
-	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/mainwidget.h -o moc_mainwidget.cpp
+	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/mainwidget.h -o moc_mainwidget.cpp
 
 moc_socketclient.cpp: ../IotQtClient/socketclient.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
@@ -902,18 +916,7 @@ moc_socketclient.cpp: ../IotQtClient/socketclient.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		moc_predefs.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
-	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/socketclient.h -o moc_socketclient.cpp
-
-moc_tab1opencv_stream_test.cpp: ../IotQtClient/tab1opencv_stream_test.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		moc_predefs.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
-	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/tab1opencv_stream_test.h -o moc_tab1opencv_stream_test.cpp
+	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/socketclient.h -o moc_socketclient.cpp
 
 moc_tab2socketclient.cpp: ../IotQtClient/tab2socketclient.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
@@ -933,7 +936,7 @@ moc_tab2socketclient.cpp: ../IotQtClient/tab2socketclient.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		moc_predefs.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
-	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/tab2socketclient.h -o moc_tab2socketclient.cpp
+	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/tab2socketclient.h -o moc_tab2socketclient.cpp
 
 moc_tab3controlpannel.cpp: ../IotQtClient/tab3controlpannel.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
@@ -946,7 +949,7 @@ moc_tab3controlpannel.cpp: ../IotQtClient/tab3controlpannel.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		moc_predefs.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
-	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/tab3controlpannel.h -o moc_tab3controlpannel.cpp
+	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/tab3controlpannel.h -o moc_tab3controlpannel.cpp
 
 moc_tab4sensordisplay.cpp: ../IotQtClient/tab4sensordisplay.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
@@ -959,7 +962,7 @@ moc_tab4sensordisplay.cpp: ../IotQtClient/tab4sensordisplay.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		moc_predefs.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
-	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/tab4sensordisplay.h -o moc_tab4sensordisplay.cpp
+	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/tab4sensordisplay.h -o moc_tab4sensordisplay.cpp
 
 moc_tab5_chart.cpp: ../IotQtClient/tab5_chart.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
@@ -975,7 +978,7 @@ moc_tab5_chart.cpp: ../IotQtClient/tab5_chart.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers/qdatetimeaxis.h \
 		moc_predefs.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
-	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/tab5_chart.h -o moc_tab5_chart.cpp
+	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/tab5_chart.h -o moc_tab5_chart.cpp
 
 moc_tab6_db_view.cpp: ../IotQtClient/tab6_db_view.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
@@ -995,22 +998,25 @@ moc_tab6_db_view.cpp: ../IotQtClient/tab6_db_view.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers/qdatetimeaxis.h \
 		moc_predefs.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
-	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/tab6_db_view.h -o moc_tab6_db_view.cpp
+	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/tab6_db_view.h -o moc_tab6_db_view.cpp
+
+moc_web_view_cam.cpp: ../IotQtClient/web_view_cam.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		moc_predefs.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
+	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-IotQtClient-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/IotQtClient -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../IotQtClient/web_view_cam.h -o moc_web_view_cam.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwidget.h ui_tab1opencv_stream_test.h ui_tab2socketclient.h ui_tab3controlpannel.h ui_tab4sensordisplay.h ui_tab5_chart.h ui_tab6_db_view.h
+compiler_uic_make_all: ui_mainwidget.h ui_tab2socketclient.h ui_tab3controlpannel.h ui_tab4sensordisplay.h ui_tab5_chart.h ui_tab6_db_view.h ui_web_view_cam.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwidget.h ui_tab1opencv_stream_test.h ui_tab2socketclient.h ui_tab3controlpannel.h ui_tab4sensordisplay.h ui_tab5_chart.h ui_tab6_db_view.h
+	-$(DEL_FILE) ui_mainwidget.h ui_tab2socketclient.h ui_tab3controlpannel.h ui_tab4sensordisplay.h ui_tab5_chart.h ui_tab6_db_view.h ui_web_view_cam.h
 ui_mainwidget.h: ../IotQtClient/mainwidget.ui \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic
 	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic ../IotQtClient/mainwidget.ui -o ui_mainwidget.h
-
-ui_tab1opencv_stream_test.h: ../IotQtClient/tab1opencv_stream_test.ui \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic
-	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic ../IotQtClient/tab1opencv_stream_test.ui -o ui_tab1opencv_stream_test.h
 
 ui_tab2socketclient.h: ../IotQtClient/tab2socketclient.ui \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic
@@ -1032,6 +1038,10 @@ ui_tab6_db_view.h: ../IotQtClient/tab6_db_view.ui \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic
 	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic ../IotQtClient/tab6_db_view.ui -o ui_tab6_db_view.h
 
+ui_web_view_cam.h: ../IotQtClient/web_view_cam.ui \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic
+	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic ../IotQtClient/web_view_cam.ui -o ui_web_view_cam.h
+
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
 compiler_yacc_decl_make_all:
@@ -1047,14 +1057,12 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 main.o: ../IotQtClient/main.cpp ../IotQtClient/mainwidget.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../IotQtClient/tab1opencv_stream_test.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../IotQtClient/web_view_cam.h \
 		../IotQtClient/tab2socketclient.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTime \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../IotQtClient/socketclient.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
@@ -1087,14 +1095,12 @@ main.o: ../IotQtClient/main.cpp ../IotQtClient/mainwidget.h \
 mainwidget.o: ../IotQtClient/mainwidget.cpp ../IotQtClient/mainwidget.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../IotQtClient/tab1opencv_stream_test.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../IotQtClient/web_view_cam.h \
 		../IotQtClient/tab2socketclient.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTime \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../IotQtClient/socketclient.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
@@ -1139,16 +1145,6 @@ socketclient.o: ../IotQtClient/socketclient.cpp /Users/bagjaewan/Applications/5.
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o socketclient.o ../IotQtClient/socketclient.cpp
-
-tab1opencv_stream_test.o: ../IotQtClient/tab1opencv_stream_test.cpp ../IotQtClient/tab1opencv_stream_test.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		ui_tab1opencv_stream_test.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tab1opencv_stream_test.o ../IotQtClient/tab1opencv_stream_test.cpp
 
 tab2socketclient.o: ../IotQtClient/tab2socketclient.cpp ../IotQtClient/tab2socketclient.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
@@ -1227,6 +1223,12 @@ tab6_db_view.o: ../IotQtClient/tab6_db_view.cpp ../IotQtClient/tab6_db_view.h \
 		ui_tab6_db_view.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tab6_db_view.o ../IotQtClient/tab6_db_view.cpp
 
+web_view_cam.o: ../IotQtClient/web_view_cam.cpp ../IotQtClient/web_view_cam.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		ui_web_view_cam.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o web_view_cam.o ../IotQtClient/web_view_cam.cpp
+
 qrc_IotQtClient.o: qrc_IotQtClient.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_IotQtClient.o qrc_IotQtClient.cpp
 
@@ -1235,9 +1237,6 @@ moc_mainwidget.o: moc_mainwidget.cpp
 
 moc_socketclient.o: moc_socketclient.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_socketclient.o moc_socketclient.cpp
-
-moc_tab1opencv_stream_test.o: moc_tab1opencv_stream_test.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_tab1opencv_stream_test.o moc_tab1opencv_stream_test.cpp
 
 moc_tab2socketclient.o: moc_tab2socketclient.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_tab2socketclient.o moc_tab2socketclient.cpp
@@ -1253,6 +1252,9 @@ moc_tab5_chart.o: moc_tab5_chart.cpp
 
 moc_tab6_db_view.o: moc_tab6_db_view.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_tab6_db_view.o moc_tab6_db_view.cpp
+
+moc_web_view_cam.o: moc_web_view_cam.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_web_view_cam.o moc_web_view_cam.cpp
 
 ####### Install
 
