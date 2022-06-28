@@ -40,7 +40,7 @@ private slots:
     void url_load();
     void url_pause();
     void capture();
-    void recorde();
+//    void recorde();
 
     void showTime();
 

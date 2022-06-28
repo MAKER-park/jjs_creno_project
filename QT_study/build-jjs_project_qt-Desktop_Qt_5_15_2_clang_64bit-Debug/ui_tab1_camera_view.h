@@ -39,7 +39,6 @@ public:
     QPushButton *pPB_START;
     QPushButton *pPB_PAUSE;
     QPushButton *pPB_CAPTURE;
-    QPushButton *pPB_RECORDE;
     QPushButton *pPB_ETC;
 
     void setupUi(QWidget *Tab1_Camera_view)
@@ -137,12 +136,6 @@ public:
 
         horizontalLayout_4->addWidget(pPB_CAPTURE);
 
-        pPB_RECORDE = new QPushButton(Tab1_Camera_view);
-        pPB_RECORDE->setObjectName(QString::fromUtf8("pPB_RECORDE"));
-        pPB_RECORDE->setFont(font);
-
-        horizontalLayout_4->addWidget(pPB_RECORDE);
-
         pPB_ETC = new QPushButton(Tab1_Camera_view);
         pPB_ETC->setObjectName(QString::fromUtf8("pPB_ETC"));
         pPB_ETC->setFont(font);
@@ -168,7 +161,6 @@ public:
         pPB_START->setText(QCoreApplication::translate("Tab1_Camera_view", "START", nullptr));
         pPB_PAUSE->setText(QCoreApplication::translate("Tab1_Camera_view", "PAUSE", nullptr));
         pPB_CAPTURE->setText(QCoreApplication::translate("Tab1_Camera_view", "CAPTURE", nullptr));
-        pPB_RECORDE->setText(QCoreApplication::translate("Tab1_Camera_view", "RECORDE", nullptr));
         pPB_ETC->setText(QCoreApplication::translate("Tab1_Camera_view", "ETC", nullptr));
     } // retranslateUi
 

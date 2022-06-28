@@ -133,18 +133,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pPB_RECORDE">
-       <property name="font">
-        <font>
-         <pointsize>30</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>RECORDE</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="pPB_ETC">
        <property name="font">
         <font>

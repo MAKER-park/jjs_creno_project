@@ -22,7 +22,7 @@ Tab1_Camera_view::Tab1_Camera_view(QWidget *parent) :
     //capture_button
     connect(ui->pPB_CAPTURE,SIGNAL(clicked()),this,SLOT(capture()));
     //recoder_button
-    connect(ui->pPB_RECORDE,SIGNAL(clicked()),this,SLOT(recorde()));
+//    connect(ui->pPB_RECORDE,SIGNAL(clicked()),this,SLOT(recorde()));
 }
 
 Tab1_Camera_view::~Tab1_Camera_view()
@@ -62,15 +62,15 @@ void Tab1_Camera_view::capture(){
     }
 }
 
-void Tab1_Camera_view::recorde(){
-    qDebug()<<"acitivity : " << pWebView->isActiveWindow();
-    if(pWebView->isActiveWindow()){
-        QTime current_time = QTime::currentTime();
-//        m_mediaRecorder->record(); //안될듯
-    }else{
-        qDebug()<<"not active no captuer!!";
-    }
-}
+//void Tab1_Camera_view::recorde(){
+//    qDebug()<<"acitivity : " << pWebView->isActiveWindow();
+//    if(pWebView->isActiveWindow()){
+//        QTime current_time = QTime::currentTime();
+////        m_mediaRecorder->record(); //안될듯
+//    }else{
+//        qDebug()<<"not active no captuer!!";
+//    }
+//}
 
 void Tab1_Camera_view::showTime(){
     ui->pLN_Xpos->display(pos_x++);
