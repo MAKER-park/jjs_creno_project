@@ -31,6 +31,7 @@ public:
 private:
     Ui::Tab1_Camera_view *ui;
     QWebEngineView  *pWebView;
+    QWebEngineView  *pWebView_2;
     bool test_timer_set = false;
     qint16 pos_x = 0;
     qint16 pos_y = 0;
