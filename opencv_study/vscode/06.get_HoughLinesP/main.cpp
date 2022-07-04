@@ -20,23 +20,30 @@ int main() {
     Mat img_gray;
 	cvtColor(img, img_gray, COLOR_BGR2GRAY);
     Mat img_canny;
-	Canny(img_gray, img_canny, 150, 255);
+
+    //test ------------------------------------
+    vector<Vec4i> linesP_canny;
+	Canny(img_gray, img_canny, 80, 200);//150,255
+    imshow("img_canny", img_canny);
+    //test ------------------------------------
+
     vector<Vec4i> linesP;
-	HoughLinesP(img_canny, linesP, 1, (CV_PI / 180), 80, 5, 10);
+	HoughLinesP(img_canny, linesP, 1, (CV_PI / 180), 70, 3, 5);
     Mat img_houghP;
 	img.copyTo(img_houghP);
     Mat img_lane;
-	threshold(img_canny, img_lane, 150, 255, THRESH_MASK);
+	threshold(img_canny, img_lane, 80, 200, THRESH_MASK);//150,255
 
     for (size_t i = 0; i < linesP.size(); i++)
 	{
 		Vec4i l = linesP[i];
 		line(img_houghP, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255), 2, 8);
 		line(img_lane, Point(l[0], l[1]), Point(l[2], l[3]), Scalar::all(255), 1, 8);
+        putText(img_houghP,"test",Point(l[0], l[1]), FONT_HERSHEY_PLAIN, 1,Scalar(0,255,0),2);
 	}
 
-    imshow("Image_for_web", img);
-    imshow("img_canny", img_houghP);
+    // imshow("Image_for_web", img);
+    imshow("img_houghP", img_houghP);
 	imshow("img_lane", img_lane);
 
     waitKey(1);
