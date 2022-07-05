@@ -11,16 +11,18 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    tab1_camera_view.cpp
+    tab1_camera_view.cpp \
+    tab2_connecting.cpp
 
 HEADERS += \
     mainwindow.h \
-    qt_delay.h \
-    tab1_camera_view.h
+    tab1_camera_view.h \
+    tab2_connecting.h
 
 FORMS += \
     mainwindow.ui \
-    tab1_camera_view.ui
+    tab1_camera_view.ui \
+    tab2_connecting.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

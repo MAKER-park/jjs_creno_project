@@ -54,13 +54,17 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../jjs_project_qt/main.cpp \
 		../jjs_project_qt/mainwindow.cpp \
-		../jjs_project_qt/tab1_camera_view.cpp moc_mainwindow.cpp \
-		moc_tab1_camera_view.cpp
+		../jjs_project_qt/tab1_camera_view.cpp \
+		../jjs_project_qt/tab2_connecting.cpp moc_mainwindow.cpp \
+		moc_tab1_camera_view.cpp \
+		moc_tab2_connecting.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		tab1_camera_view.o \
+		tab2_connecting.o \
 		moc_mainwindow.o \
-		moc_tab1_camera_view.o
+		moc_tab1_camera_view.o \
+		moc_tab2_connecting.o
 DIST          = /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/qdevice.pri \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/device_config.prf \
@@ -271,10 +275,11 @@ DIST          = /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/s
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/yacc.prf \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/lex.prf \
 		../jjs_project_qt/jjs_project_qt.pro ../jjs_project_qt/mainwindow.h \
-		../jjs_project_qt/qt_delay.h \
-		../jjs_project_qt/tab1_camera_view.h ../jjs_project_qt/main.cpp \
+		../jjs_project_qt/tab1_camera_view.h \
+		../jjs_project_qt/tab2_connecting.h ../jjs_project_qt/main.cpp \
 		../jjs_project_qt/mainwindow.cpp \
-		../jjs_project_qt/tab1_camera_view.cpp
+		../jjs_project_qt/tab1_camera_view.cpp \
+		../jjs_project_qt/tab2_connecting.cpp
 QMAKE_TARGET  = jjs_project_qt
 DESTDIR       = 
 TARGET        = jjs_project_qt.app/Contents/MacOS/jjs_project_qt
@@ -293,7 +298,7 @@ include /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/mac/sdk.m
 first: all
 ####### Build rules
 
-jjs_project_qt.app/Contents/MacOS/jjs_project_qt: ui_mainwindow.h ui_tab1_camera_view.h $(OBJECTS)  
+jjs_project_qt.app/Contents/MacOS/jjs_project_qt: ui_mainwindow.h ui_tab1_camera_view.h ui_tab2_connecting.h $(OBJECTS)  
 	@test -d jjs_project_qt.app/Contents/MacOS/ || mkdir -p jjs_project_qt.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -780,9 +785,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../jjs_project_qt/mainwindow.h ../jjs_project_qt/qt_delay.h ../jjs_project_qt/tab1_camera_view.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../jjs_project_qt/main.cpp ../jjs_project_qt/mainwindow.cpp ../jjs_project_qt/tab1_camera_view.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../jjs_project_qt/mainwindow.ui ../jjs_project_qt/tab1_camera_view.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../jjs_project_qt/mainwindow.h ../jjs_project_qt/tab1_camera_view.h ../jjs_project_qt/tab2_connecting.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../jjs_project_qt/main.cpp ../jjs_project_qt/mainwindow.cpp ../jjs_project_qt/tab1_camera_view.cpp ../jjs_project_qt/tab2_connecting.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../jjs_project_qt/mainwindow.ui ../jjs_project_qt/tab1_camera_view.ui ../jjs_project_qt/tab2_connecting.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -817,9 +822,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=10.13 -Wall -Wextra -dM -E -o moc_predefs.h /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_tab1_camera_view.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_tab1_camera_view.cpp moc_tab2_connecting.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_tab1_camera_view.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_tab1_camera_view.cpp moc_tab2_connecting.cpp
 moc_mainwindow.cpp: ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -828,9 +833,6 @@ moc_mainwindow.cpp: ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		../jjs_project_qt/qt_delay.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers/QWebEngineView \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers/qwebengineview.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QString \
@@ -839,6 +841,8 @@ moc_mainwindow.cpp: ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTime \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/QMediaRecorder \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/qmediarecorder.h \
 		moc_predefs.h \
@@ -850,9 +854,6 @@ moc_tab1_camera_view.cpp: ../jjs_project_qt/tab1_camera_view.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		../jjs_project_qt/qt_delay.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers/QWebEngineView \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers/qwebengineview.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QString \
@@ -861,19 +862,28 @@ moc_tab1_camera_view.cpp: ../jjs_project_qt/tab1_camera_view.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTime \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/QMediaRecorder \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/qmediarecorder.h \
 		moc_predefs.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
 	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-jjs_project_qt-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/jjs_project_qt -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../jjs_project_qt/tab1_camera_view.h -o moc_tab1_camera_view.cpp
 
+moc_tab2_connecting.cpp: ../jjs_project_qt/tab2_connecting.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		moc_predefs.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
+	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-jjs_project_qt-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/jjs_project_qt -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../jjs_project_qt/tab2_connecting.h -o moc_tab2_connecting.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_tab1_camera_view.h
+compiler_uic_make_all: ui_mainwindow.h ui_tab1_camera_view.h ui_tab2_connecting.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_tab1_camera_view.h
+	-$(DEL_FILE) ui_mainwindow.h ui_tab1_camera_view.h ui_tab2_connecting.h
 ui_mainwindow.h: ../jjs_project_qt/mainwindow.ui \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic
 	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic ../jjs_project_qt/mainwindow.ui -o ui_mainwindow.h
@@ -881,6 +891,10 @@ ui_mainwindow.h: ../jjs_project_qt/mainwindow.ui \
 ui_tab1_camera_view.h: ../jjs_project_qt/tab1_camera_view.ui \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic
 	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic ../jjs_project_qt/tab1_camera_view.ui -o ui_tab1_camera_view.h
+
+ui_tab2_connecting.h: ../jjs_project_qt/tab2_connecting.ui \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic
+	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/uic ../jjs_project_qt/tab2_connecting.ui -o ui_tab2_connecting.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -902,9 +916,6 @@ main.o: ../jjs_project_qt/main.cpp ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		../jjs_project_qt/qt_delay.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers/QWebEngineView \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers/qwebengineview.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QString \
@@ -913,6 +924,8 @@ main.o: ../jjs_project_qt/main.cpp ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTime \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/QMediaRecorder \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/qmediarecorder.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
@@ -927,9 +940,6 @@ mainwindow.o: ../jjs_project_qt/mainwindow.cpp ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		../jjs_project_qt/qt_delay.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers/QWebEngineView \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers/qwebengineview.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QString \
@@ -938,6 +948,8 @@ mainwindow.o: ../jjs_project_qt/mainwindow.cpp ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTime \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/QMediaRecorder \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/qmediarecorder.h \
 		ui_mainwindow.h
@@ -948,9 +960,6 @@ tab1_camera_view.o: ../jjs_project_qt/tab1_camera_view.cpp ../jjs_project_qt/tab
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		../jjs_project_qt/qt_delay.h \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers/QWebEngineView \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers/qwebengineview.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QString \
@@ -959,16 +968,27 @@ tab1_camera_view.o: ../jjs_project_qt/tab1_camera_view.cpp ../jjs_project_qt/tab
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTime \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/QMediaRecorder \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/qmediarecorder.h \
 		ui_tab1_camera_view.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tab1_camera_view.o ../jjs_project_qt/tab1_camera_view.cpp
+
+tab2_connecting.o: ../jjs_project_qt/tab2_connecting.cpp ../jjs_project_qt/tab2_connecting.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		ui_tab2_connecting.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tab2_connecting.o ../jjs_project_qt/tab2_connecting.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
 moc_tab1_camera_view.o: moc_tab1_camera_view.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_tab1_camera_view.o moc_tab1_camera_view.cpp
+
+moc_tab2_connecting.o: moc_tab2_connecting.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_tab2_connecting.o moc_tab2_connecting.cpp
 
 ####### Install
 
