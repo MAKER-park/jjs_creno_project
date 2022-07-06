@@ -83,7 +83,7 @@ int main()
 
 	Mat img_hsv;
 
-	VideoCapture cap("http://10.10.141.101:8080/?action=stream");
+	VideoCapture cap("http://10.10.141.250:8080/?action=stream");
 	if (!cap.isOpened()) {
 
 		cout << "카메라를 열 수 없습니다." << endl;

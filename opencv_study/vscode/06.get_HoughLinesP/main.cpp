@@ -12,7 +12,16 @@ int main() {
     // VideoCapture cap("http://cloud.park-cloud.co19.kr:8002/");
     // VideoCapture cap(1);//0:mac webcam 1: usb webcam
     // VideoCapture cap("http://10.10.141.101:8080/?action=snapshot");//0:mac webcam 1: usb webcam snapshot = > 정지 영상
-    VideoCapture cap("http://10.10.141.101:8080/?action=stream");//0:mac webcam 1: usb webcam stream = > 실시간 영상
+    VideoCapture cap("http://10.10.141.250:8080/?action=stream");//0:mac webcam 1: usb webcam stream = > 실시간 영상
+
+    //track bar
+    namedWindow("Canny", WINDOW_AUTOSIZE);
+    createTrackbar("Low Threshold", "Canny", 0, 500);
+	createTrackbar("High Threshold", "Canny", 0, 500);
+    setTrackbarPos("Low Threshold", "Canny", 25);
+	setTrackbarPos("High Threshold", "Canny", 40);
+    //--------------tack bar init ---------------------
+
     Mat img;
     cout << "test" << endl;
     while (true) {
@@ -23,7 +32,9 @@ int main() {
 
     //test ------------------------------------
     vector<Vec4i> linesP_canny;
-	Canny(img_gray, img_canny, 80, 200);//150,255
+    int Low = getTrackbarPos("Low Threshold", "Canny");
+	int High = getTrackbarPos("High Threshold", "Canny");
+	Canny(img_gray, img_canny, Low, High);//150,255
     imshow("img_canny", img_canny);
     //test ------------------------------------
 
