@@ -137,6 +137,7 @@ static void drawSquares( Mat& image, const vector<vector<Point> >& squares )
         //dont detect the border
         if (p-> x > 3 && p->y > 3)
           polylines(image, &p, &n, 1, true, Scalar(0,255,0), 3, LINE_AA);
+          
     }
 
     imshow(wndname, image);
