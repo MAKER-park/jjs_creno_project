@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    socketclient.cpp \
     tab1_camera_view.cpp \
     tab2_connecting.cpp
 
 HEADERS += \
     mainwindow.h \
+    socketclient.h \
     tab1_camera_view.h \
     tab2_connecting.h
 

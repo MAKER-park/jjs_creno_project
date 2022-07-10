@@ -33,7 +33,7 @@ int main(int, char**)
     int deviceID = 0;             // 0 = open default camera
     int apiID = cv::CAP_V4L2;      // 0 = autodetect default API
     cap.open("http://10.10.141.250:8080/?action=stream");
-	// cap.open("http://cloud.park-cloud.co19.kr:8091/?action=stream");
+	//cap.open("http://cloud.park-cloud.co19.kr:8091/?action=stream");
     if (!cap.isOpened()) {
         cerr << "ERROR! Unable to open camera\n";
         return -1;
@@ -72,9 +72,12 @@ int main(int, char**)
 		//이진화 이미지로 변환
 		adaptiveThreshold(img_gray, img_gray,
 			255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY_INV, 
-			21, 7);  
+			21, 3);  
+		
 
-		morphologyEx(img_gray, img_gray, MORPH_OPEN, Mat());//morphologyEx close()->fail
+		// morphologyEx(img_gray, img_gray, MORPH_OPEN, Mat());//morphologyEx close()->fail
+
+		//Canny(img_gray, img_gray,Low, High);
 
 		vector<vector<Point> > contours;
 	   	findContours(img_gray, contours, RETR_LIST, CHAIN_APPROX_SIMPLE);

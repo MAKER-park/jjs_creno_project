@@ -54,15 +54,19 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../jjs_project_qt/main.cpp \
 		../jjs_project_qt/mainwindow.cpp \
+		../jjs_project_qt/socketclient.cpp \
 		../jjs_project_qt/tab1_camera_view.cpp \
 		../jjs_project_qt/tab2_connecting.cpp moc_mainwindow.cpp \
+		moc_socketclient.cpp \
 		moc_tab1_camera_view.cpp \
 		moc_tab2_connecting.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
+		socketclient.o \
 		tab1_camera_view.o \
 		tab2_connecting.o \
 		moc_mainwindow.o \
+		moc_socketclient.o \
 		moc_tab1_camera_view.o \
 		moc_tab2_connecting.o
 DIST          = /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/spec_pre.prf \
@@ -275,9 +279,11 @@ DIST          = /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/s
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/yacc.prf \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/lex.prf \
 		../jjs_project_qt/jjs_project_qt.pro ../jjs_project_qt/mainwindow.h \
+		../jjs_project_qt/socketclient.h \
 		../jjs_project_qt/tab1_camera_view.h \
 		../jjs_project_qt/tab2_connecting.h ../jjs_project_qt/main.cpp \
 		../jjs_project_qt/mainwindow.cpp \
+		../jjs_project_qt/socketclient.cpp \
 		../jjs_project_qt/tab1_camera_view.cpp \
 		../jjs_project_qt/tab2_connecting.cpp
 QMAKE_TARGET  = jjs_project_qt
@@ -785,8 +791,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../jjs_project_qt/mainwindow.h ../jjs_project_qt/tab1_camera_view.h ../jjs_project_qt/tab2_connecting.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../jjs_project_qt/main.cpp ../jjs_project_qt/mainwindow.cpp ../jjs_project_qt/tab1_camera_view.cpp ../jjs_project_qt/tab2_connecting.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../jjs_project_qt/mainwindow.h ../jjs_project_qt/socketclient.h ../jjs_project_qt/tab1_camera_view.h ../jjs_project_qt/tab2_connecting.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../jjs_project_qt/main.cpp ../jjs_project_qt/mainwindow.cpp ../jjs_project_qt/socketclient.cpp ../jjs_project_qt/tab1_camera_view.cpp ../jjs_project_qt/tab2_connecting.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../jjs_project_qt/mainwindow.ui ../jjs_project_qt/tab1_camera_view.ui ../jjs_project_qt/tab2_connecting.ui $(DISTDIR)/
 
 
@@ -822,9 +828,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=10.13 -Wall -Wextra -dM -E -o moc_predefs.h /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_tab1_camera_view.cpp moc_tab2_connecting.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_socketclient.cpp moc_tab1_camera_view.cpp moc_tab2_connecting.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_tab1_camera_view.cpp moc_tab2_connecting.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_socketclient.cpp moc_tab1_camera_view.cpp moc_tab2_connecting.cpp
 moc_mainwindow.cpp: ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -845,9 +851,23 @@ moc_mainwindow.cpp: ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/QMediaRecorder \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/qmediarecorder.h \
+		../jjs_project_qt/tab2_connecting.h \
 		moc_predefs.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
 	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-jjs_project_qt-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/jjs_project_qt -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../jjs_project_qt/mainwindow.h -o moc_mainwindow.cpp
+
+moc_socketclient.cpp: ../jjs_project_qt/socketclient.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QHostAddress \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qhostaddress.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		moc_predefs.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
+	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-jjs_project_qt-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/jjs_project_qt -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../jjs_project_qt/socketclient.h -o moc_socketclient.cpp
 
 moc_tab1_camera_view.cpp: ../jjs_project_qt/tab1_camera_view.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
@@ -928,6 +948,7 @@ main.o: ../jjs_project_qt/main.cpp ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/QMediaRecorder \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/qmediarecorder.h \
+		../jjs_project_qt/tab2_connecting.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../jjs_project_qt/main.cpp
@@ -952,8 +973,22 @@ mainwindow.o: ../jjs_project_qt/mainwindow.cpp ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/QMediaRecorder \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/qmediarecorder.h \
+		../jjs_project_qt/tab2_connecting.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../jjs_project_qt/mainwindow.cpp
+
+socketclient.o: ../jjs_project_qt/socketclient.cpp /Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../jjs_project_qt/socketclient.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QHostAddress \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qhostaddress.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o socketclient.o ../jjs_project_qt/socketclient.cpp
 
 tab1_camera_view.o: ../jjs_project_qt/tab1_camera_view.cpp ../jjs_project_qt/tab1_camera_view.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
@@ -983,6 +1018,9 @@ tab2_connecting.o: ../jjs_project_qt/tab2_connecting.cpp ../jjs_project_qt/tab2_
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_socketclient.o: moc_socketclient.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_socketclient.o moc_socketclient.cpp
 
 moc_tab1_camera_view.o: moc_tab1_camera_view.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_tab1_camera_view.o moc_tab1_camera_view.cpp
