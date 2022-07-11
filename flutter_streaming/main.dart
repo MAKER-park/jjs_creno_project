@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'streaming',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -23,7 +23,12 @@ class MyHomePage extends HookWidget {
     final isRunning = useState(true);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Demo Home Page'),
+        backgroundColor: Color(0xFF39D265),
+        automaticallyImplyLeading: true,
+        title: Text('Web Streaming'),
+        actions: [],
+        centerTitle: true,
+        elevation: 4,
       ),
       body: Column(
         children: <Widget>[
@@ -47,16 +52,9 @@ class MyHomePage extends HookWidget {
                 onPressed: () {
                   isRunning.value = !isRunning.value;
                 },
-                child: Text('Toggle'),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => Scaffold(
-                        appBar: AppBar(),
-                      )));
-                },
-                child: Text('Push new route'),
+                child: Text('Cam'),
+
+
               ),
             ],
           ),
