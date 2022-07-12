@@ -2,6 +2,10 @@
 #define TAB2_CONNECTING_H
 
 #include <QWidget>
+#include "socketclient.h"
+#include <QMessageBox>
+#include <QtDebug>
+#include <QTime>
 
 namespace Ui {
 class tab2_connecting;

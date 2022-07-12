@@ -6,6 +6,7 @@
 
 using namespace cv;
 using namespace std;
+using namespace cv::dnn;
 
 
 //Contour 영역 내에 텍스트 쓰기 
@@ -73,7 +74,7 @@ int main(int, char**)
 		adaptiveThreshold(img_gray, img_gray,
 			255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY_INV, 
 			21, 3);  
-		
+		imshow("gray_binary", img_gray);
 
 		// morphologyEx(img_gray, img_gray, MORPH_OPEN, Mat());//morphologyEx close()->fail
 
@@ -92,18 +93,24 @@ int main(int, char**)
 				int size = approx.size();
                 const char *name[]= { "none", "none", "none", "container", "container", "container", "container", "container", "none", "none", "none"  };
                 // cout << "size : " << size << endl;
-                if(size > 4 && size < 9){//5개 이상일때 
+                if(size > 4 && size < 7){//5개 이상일때 
 				if (size % 2 == 0)
 			   	{ 
-					line(img_result, approx[0], approx[approx.size() - 1], Scalar(0, 255, 0), 3); 
-					for (int k = 0; k < size - 1; k++) 
-						line(img_result, approx[k], approx[k + 1], Scalar(0, 255, 0), 3); 
+					// line(img_result, approx[0], approx[approx.size() - 1], Scalar(0, 255, 0), 3); 
+					for (int k = 0; k < size - 1; k++) {
+						// line(img_result, approx[k], approx[k + 1], Scalar(0, 255, 0), 3);
+						// cout << approx[k] << "    " << approx[k+1] << endl;
+						// rectangle(img_result, approx[k], approx[k + 1],Scalar(0, 0, 255),1,8,0);
+					}
 					for (int k = 0; k < size; k++) 
 						circle(img_result, approx[k], 3, Scalar(0, 0, 255));
 			   	} else { 
-					line(img_result, approx[0], approx[approx.size() - 1], Scalar(0, 255, 0), 3); 
-					for (int k = 0; k < size - 1; k++) 
-						line(img_result, approx[k], approx[k + 1], Scalar(0, 255, 0), 3); 
+					// line(img_result, approx[0], approx[approx.size() - 1], Scalar(0, 255, 0), 3); 
+					for (int k = 0; k < size - 1; k++) {
+						cout << approx[k] << "    " << approx[k+1] << endl;
+						rectangle(img_result, approx[k], approx[k + 1],Scalar(0, 255, 255),2,8,0);
+						// line(img_result, approx[k], approx[k + 1], Scalar(0, 255, 0), 3); 					
+					}
 					for (int k = 0; k < size; k++) 
 						circle(img_result, approx[k], 3, Scalar(0, 0, 255));
 				}

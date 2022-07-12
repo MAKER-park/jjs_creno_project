@@ -852,6 +852,15 @@ moc_mainwindow.cpp: ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/QMediaRecorder \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/qmediarecorder.h \
 		../jjs_project_qt/tab2_connecting.h \
+		../jjs_project_qt/socketclient.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QHostAddress \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qhostaddress.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		moc_predefs.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
 	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-jjs_project_qt-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/jjs_project_qt -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../jjs_project_qt/mainwindow.h -o moc_mainwindow.cpp
@@ -893,6 +902,19 @@ moc_tab1_camera_view.cpp: ../jjs_project_qt/tab1_camera_view.h \
 moc_tab2_connecting.cpp: ../jjs_project_qt/tab2_connecting.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../jjs_project_qt/socketclient.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QHostAddress \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qhostaddress.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTime \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
 		moc_predefs.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc
 	/Users/bagjaewan/Applications/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-jjs_project_qt-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang -I/Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/jjs_project_qt -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCharts.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQuick.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQmlModels.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtQml.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/bagjaewan/Applications/5.15.2/clang_64/lib ../jjs_project_qt/tab2_connecting.h -o moc_tab2_connecting.cpp
@@ -949,6 +971,15 @@ main.o: ../jjs_project_qt/main.cpp ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/QMediaRecorder \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/qmediarecorder.h \
 		../jjs_project_qt/tab2_connecting.h \
+		../jjs_project_qt/socketclient.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QHostAddress \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qhostaddress.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../jjs_project_qt/main.cpp
@@ -974,6 +1005,15 @@ mainwindow.o: ../jjs_project_qt/mainwindow.cpp ../jjs_project_qt/mainwindow.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/QMediaRecorder \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtMultimedia.framework/Headers/qmediarecorder.h \
 		../jjs_project_qt/tab2_connecting.h \
+		../jjs_project_qt/socketclient.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QHostAddress \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qhostaddress.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../jjs_project_qt/mainwindow.cpp
 
@@ -1013,6 +1053,19 @@ tab1_camera_view.o: ../jjs_project_qt/tab1_camera_view.cpp ../jjs_project_qt/tab
 tab2_connecting.o: ../jjs_project_qt/tab2_connecting.cpp ../jjs_project_qt/tab2_connecting.h \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../jjs_project_qt/socketclient.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/QHostAddress \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtNetwork.framework/Headers/qhostaddress.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QtDebug \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/QTime \
+		/Users/bagjaewan/Applications/5.15.2/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
 		ui_tab2_connecting.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tab2_connecting.o ../jjs_project_qt/tab2_connecting.cpp
 

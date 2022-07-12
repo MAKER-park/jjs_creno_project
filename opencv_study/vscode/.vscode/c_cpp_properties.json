@@ -4,7 +4,10 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/opt/homebrew/Cellar/opencv/4.5.5_2/include/opencv4"
+                "/opt/homebrew/Cellar/opencv/4.5.5_2/include/opencv4",
+                "/opt/homebrew/Cellar/tesseract/5.1.0/include/tesseract",
+                "/opt/homebrew/Cellar/leptonica/1.82.0/include/leptonica",
+                "/opt/homebrew/Cellar/tesseract/5.1.0/include"
             ],
             "defines": [],
             "macFrameworkPath": [],
