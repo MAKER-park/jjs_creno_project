@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
      OEM_DEFAULT                    Default, based on what is available.
     */
   
-    ocr->Init(NULL, "kor+eng", tesseract::OEM_LSTM_ONLY);
+    ocr->Init(NULL, "kor", tesseract::OEM_LSTM_ONLY);
   
 
   
