@@ -1,3 +1,5 @@
+//ROS 클라이언트 코드
+
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "std_msgs/Empty.h"
@@ -44,18 +46,15 @@ public:
 		user_sub = user_n.subscribe("/user_from", 100, &ros_server_topic::user_callback, this);
 	}
 
-	void mega_callback(const std_msgs::String &input)
-	{		
+	void mega_callback(const std_msgs::String &input) {		
 		mega_pub.publish(input);
 	}
 
-	void uno_callback(const std_msgs::String &input)
-	{		
+	void uno_callback(const std_msgs::String &input) {		
 		uno_pub.publish(input);
 	}
 
-	void user_callback(const std_msgs::String &input)
-	{		
+	void user_callback(const std_msgs::String &input) {		
 		user_pub.publish(input);
 	}
 
