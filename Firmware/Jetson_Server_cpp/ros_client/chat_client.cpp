@@ -3,12 +3,12 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "std_msgs/Empty.h"
-#include <iostream>
 #include <sstream>
-#include <cstdio>
+#include <iostream>
 #include <string>
+#include <stdio.h>
 #include <unistd.h>
-#include <cstdlib>
+#include <stdlib.h>
 #include <pthread.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
@@ -30,6 +30,9 @@ char msg[BUF_SIZE];
 void mega_callback(const std_msgs::String &input);
 void uno_callback(const std_msgs::String &input);
 void user_callback(const std_msgs::String &input);
+void Split(std_msgs::String sData, char cSeparator);
+
+char* temp[10];
 
 class ros_server_topic
 {
@@ -71,9 +74,6 @@ public:
 	ros::Subscriber user_sub;
 
 };
-
-
-
 
 int main(int argc, char* argv[]) {
 
@@ -132,24 +132,39 @@ void* recv_msg(void* arg) {
 	int sock = *((int*)arg);
 	char name_msg[NAME_SIZE+BUF_SIZE];
 	int str_len;
+
 	std_msgs::String send_message;
-	char* search = "move";
-	char* result = NULL;
+	string search = "move";
 	ros_server_topic ROSProject;
+	string recv_data;
+	string send_data;
+	int result = 0;
+	size_t pos;	
+
 	while(1) {
 		str_len = read(sock, name_msg, NAME_SIZE+BUF_SIZE-1);
 		if(str_len == -1)
 			return (void*)-1;
 		name_msg[str_len] = 0;
-		//if(1) {
-		//	result = strstr(msg, search);
-		//	printf("%s\n", result);
-		//}		
-		//if(result != NULL) {
-			send_message.data = name_msg;
+
+		recv_data = name_msg;
+		pos = recv_data.find(']');
+		recv_data = recv_data.substr(pos + 2, 4);
+		cout << "recv_data : " << recv_data << endl;
+
+		result = recv_data.compare(search);
+
+		cout << "result : " << result << endl;
+		
+		if(result == 0) {
+			send_data = name_msg;
+			pos = send_data.find(']');
+			send_data = send_data.substr(pos + 2);
+			cout << "send_data : " << send_data << endl;
+			send_message.data = send_data;
 			ROSProject.mega_callback(send_message);
-			printf("send topic \n");
-		//}
+			cout << "send topic \n" << endl;
+		}
 		fputs(name_msg, stdout);
 	}
 	return NULL;
@@ -160,3 +175,27 @@ void error_handling(const char* msg) {
 	fputc('\n', stderr);
 	exit(1);
 }
+/*
+void Split(std::string sData, char cSeparator) {
+  int nCount = 0;
+  int nGetIndex = 0 ;
+  std::string sTemp;
+  sTemp.data = "";
+  std::string sCopy = sData;
+
+  while (true) {
+    nGetIndex = sCopy.indexOf(cSeparator);
+
+    if (nGetIndex != -1) {
+      sTemp = sCopy.substring(0, nGetIndex);
+      temp[nCount] = sTemp.toInt();
+      sCopy = sCopy.substring(nGetIndex + 1);
+    }
+    else {
+      temp[nCount] = sCopy.toInt();
+      break;
+    }
+    ++nCount;
+  }
+}
+*/
