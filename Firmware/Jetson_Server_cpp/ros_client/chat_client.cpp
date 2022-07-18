@@ -39,40 +39,15 @@ class ros_server_topic
 public:
 	ros_server_topic()
 	{
-		mega_pub = mega_n.advertise<std_msgs::String>("/mega_to", 100);	
-		mega_sub = mega_n.subscribe("/mega_from", 100, &ros_server_topic::mega_callback, this);
-
-		uno_pub = uno_n.advertise<std_msgs::String>("/uno_to", 100);	
-		uno_sub = uno_n.subscribe("/uno_from", 100, &ros_server_topic::uno_callback, this);
-
-		user_pub = user_n.advertise<std_msgs::String>("/user_to", 100);	
-		user_sub = user_n.subscribe("/user_from", 100, &ros_server_topic::user_callback, this);
+		mega_pub = _n.advertise<std_msgs::String>("/mega_to", 100);	
 	}
 
 	void mega_callback(const std_msgs::String &input) {		
 		mega_pub.publish(input);
 	}
 
-	void uno_callback(const std_msgs::String &input) {		
-		uno_pub.publish(input);
-	}
-
-	void user_callback(const std_msgs::String &input) {		
-		user_pub.publish(input);
-	}
-
-	ros::NodeHandle mega_n;
+	ros::NodeHandle _n;
 	ros::Publisher mega_pub;
-	ros::Subscriber mega_sub;
-
-	ros::NodeHandle uno_n;
-	ros::Publisher uno_pub;
-	ros::Subscriber uno_sub;
-
-	ros::NodeHandle user_n;
-	ros::Publisher user_pub;
-	ros::Subscriber user_sub;
-
 };
 
 int main(int argc, char* argv[]) {
