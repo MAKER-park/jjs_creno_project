@@ -7,10 +7,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
  
-make: *** No rule to make target `all'.  Stop.
 
-
-# Make data base, printed on Thu Jul  7 14:01:55 2022
+# Make data base, printed on Thu Jul 14 09:23:57 2022
 
 # Variables
 
@@ -32,6 +30,9 @@ CURDIR := /Users/bagjaewan/Documents/GitHub/jjs_creno_project/opencv_study/vscod
 SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{"*":"ko"},"_languagePackId":"26f3b44ea4f1e942cca002e9545643cc.ko","_translationsConfigFile":"/Users/bagjaewan/Library/Application Support/Code/clp/26f3b44ea4f1e942cca002e9545643cc.ko/tcf.json","_cacheRoot":"/Users/bagjaewan/Library/Application Support/Code/clp/26f3b44ea4f1e942cca002e9545643cc.ko","_resolvedLanguagePackCoreLocation":"/Users/bagjaewan/Library/Application Support/Code/clp/26f3b44ea4f1e942cca002e9545643cc.ko/30d9c6cd9483b2cc586687151bcbcd635f373630","_corruptedFile":"/Users/bagjaewan/Library/Application Support/Code/clp/26f3b44ea4f1e942cca002e9545643cc.ko/corrupted.info","_languagePackSupport":true}
+ 
+make: *** No rule to make target `all'.  Stop.
+
 # environment
 _ = /usr/bin/make
 # makefile
@@ -43,7 +44,7 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/4x/x1y19fzn1c34g6lh005168pm0000gn/T/vscode-ipc-4ee3ea49-72c6-490b-b2bf-cf0766af968b.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/4x/x1y19fzn1c34g6lh005168pm0000gn/T/vscode-ipc-1a57266f-c163-43c7-a2c9-864533cb55de.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -57,7 +58,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.s75RWeNzG9/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.H9eYcCpitY/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -155,7 +156,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 25338
+VSCODE_PID = 40020
 # variable set hash-table stats:
 # Load=71/1024=7%, Rehash=0, Collisions=1/91=1%
 
@@ -165,9 +166,9 @@ VSCODE_PID = 25338
 
 # Directories
 
-# . (device 16777233, inode 9692888): 17 files, no impossibilities.
+# . (device 16777231, inode 9692888): 19 files, no impossibilities.
 
-# 17 files, no impossibilities in 1 directories.
+# 19 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -239,6 +240,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Thu Jul  7 14:01:55 2022
+# Finished Make data base on Thu Jul 14 09:23:57 2022
 
  

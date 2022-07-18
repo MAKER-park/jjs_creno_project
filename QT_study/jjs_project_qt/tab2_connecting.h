@@ -21,6 +21,10 @@ public:
 
 private:
     Ui::tab2_connecting *ui;
+    SocketClient* pSocketClient;
+
+private slots:
+    void slotConnectToServer(bool);//connection
 };
 
 #endif // TAB2_CONNECTING_H
