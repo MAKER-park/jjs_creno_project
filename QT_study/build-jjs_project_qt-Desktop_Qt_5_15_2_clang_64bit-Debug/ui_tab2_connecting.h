@@ -39,11 +39,13 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         pB_connect = new QPushButton(tab2_connecting);
         pB_connect->setObjectName(QString::fromUtf8("pB_connect"));
+        pB_connect->setCheckable(true);
 
         horizontalLayout->addWidget(pB_connect);
 
         pB_close = new QPushButton(tab2_connecting);
         pB_close->setObjectName(QString::fromUtf8("pB_close"));
+        pB_close->setCheckable(true);
 
         horizontalLayout->addWidget(pB_close);
 

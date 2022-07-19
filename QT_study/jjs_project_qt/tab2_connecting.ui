@@ -21,12 +21,18 @@
        <property name="text">
         <string>서버 연결</string>
        </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pB_close">
        <property name="text">
         <string>연결 해제</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
