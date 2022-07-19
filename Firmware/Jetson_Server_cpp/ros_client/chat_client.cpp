@@ -23,31 +23,36 @@ using namespace std;
 void* send_msg(void* arg);
 void* recv_msg(void* arg);
 void error_handling(const char* msg);
+void mega_callback(const std_msgs::String &input);
+void mega_status(const std_msgs::Empty &status_info);
 
 char name[NAME_SIZE] = "[1]";
 char msg[BUF_SIZE];
 
-void mega_callback(const std_msgs::String &input);
-void uno_callback(const std_msgs::String &input);
-void user_callback(const std_msgs::String &input);
-void Split(std_msgs::String sData, char cSeparator);
-
 char* temp[10];
+
+bool complete_status = false;
 
 class ros_server_topic
 {
 public:
 	ros_server_topic()
 	{
-		mega_pub = _n.advertise<std_msgs::String>("/mega_to", 100);	
+		mega_pub = _n.advertise<std_msgs::String>("/grep_move", 100);
+		mega_sub = _n.subscribe<std_msgs::Empty>("/mega_complete", 100, &ros_server_topic::mega_status, this);
 	}
 
 	void mega_callback(const std_msgs::String &input) {		
 		mega_pub.publish(input);
 	}
 
+	void mega_status(const std_msgs::Empty &status_info) {		
+		complete_status = true;
+	}
+	
 	ros::NodeHandle _n;
 	ros::Publisher mega_pub;
+	ros::Subscriber mega_sub;
 };
 
 int main(int argc, char* argv[]) {
@@ -95,13 +100,19 @@ void* send_msg(void* arg) {
 			close(sock);
 			exit(0);
 		}
+		if(complete_status == false) {
 		sprintf(name_msg, "%s %s", name, msg);
 		write(sock, name_msg, strlen(name_msg));
+		}
+		else if(complete_status == true) {
+			msg = "complete";
+			sprintf(name_msg, "%s %s", name, msg);
+			write(sock, name_msg, strlen(name_msg));
+			complete_status = false;
+		}
 	}
 	return NULL;
 }
-
-
 
 void* recv_msg(void* arg) {
 	int sock = *((int*)arg);
@@ -150,27 +161,3 @@ void error_handling(const char* msg) {
 	fputc('\n', stderr);
 	exit(1);
 }
-/*
-void Split(std::string sData, char cSeparator) {
-  int nCount = 0;
-  int nGetIndex = 0 ;
-  std::string sTemp;
-  sTemp.data = "";
-  std::string sCopy = sData;
-
-  while (true) {
-    nGetIndex = sCopy.indexOf(cSeparator);
-
-    if (nGetIndex != -1) {
-      sTemp = sCopy.substring(0, nGetIndex);
-      temp[nCount] = sTemp.toInt();
-      sCopy = sCopy.substring(nGetIndex + 1);
-    }
-    else {
-      temp[nCount] = sCopy.toInt();
-      break;
-    }
-    ++nCount;
-  }
-}
-*/
