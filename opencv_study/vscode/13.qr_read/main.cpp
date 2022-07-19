@@ -21,7 +21,7 @@ void display(Mat &im, Mat &bbox)
 int main(int argc, char* argv[])
 {
     VideoCapture cap;
-    cap.open("http://10.10.141.250:8080/?action=stream");
+    cap.open("http://10.10.141.250:8081/?action=stream");
     // cap.open(0);
 
     if (!cap.isOpened()) {
