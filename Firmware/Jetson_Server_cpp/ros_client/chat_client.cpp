@@ -1,8 +1,8 @@
 //ROS 클라이언트 코드
 
-#include "ros/ros.h"
-#include "std_msgs/String.h"
-#include "std_msgs/Empty.h"
+#include <ros/ros.h>
+#include <std_msgs/String.h>
+#include <std_msgs/Empty.h>
 #include <sstream>
 #include <iostream>
 #include <string>
@@ -39,7 +39,7 @@ public:
 	ros_server_topic()
 	{
 		mega_pub = _n.advertise<std_msgs::String>("/grep_move", 100);
-		mega_sub = _n.subscribe<std_msgs::Empty>("/mega_complete", 100, &ros_server_topic::mega_status, this);
+		mega_sub = _n.subscribe("/mega_complete", 100, &ros_server_topic::mega_status, this);
 	}
 
 	void mega_callback(const std_msgs::String &input) {		
@@ -105,7 +105,7 @@ void* send_msg(void* arg) {
 		write(sock, name_msg, strlen(name_msg));
 		}
 		else if(complete_status == true) {
-			msg = "complete";
+			strcpy(msg, "complete");
 			sprintf(name_msg, "%s %s", name, msg);
 			write(sock, name_msg, strlen(name_msg));
 			complete_status = false;
