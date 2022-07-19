@@ -101,7 +101,7 @@ void findColor(Mat img)
 	}
 }
 
-void main() {
+int main() {
 
 	//VideoCapture cap("http://cloud.park-cloud.co19.kr:8091/?action=stream");
 	VideoCapture cap("http://10.10.141.250:8080/?action=stream");
@@ -117,4 +117,5 @@ void main() {
 
 		waitKey(1);				// 너무 느리지 않도록 1ms 로 작동
 	}
+	return 0;
 }
