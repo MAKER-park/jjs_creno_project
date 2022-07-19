@@ -100,7 +100,7 @@ int main(int, char**)
 					for (int k = 0; k < size - 1; k++) {
 						// line(img_result, approx[k], approx[k + 1], Scalar(0, 255, 0), 3);
 						// cout << approx[k] << "    " << approx[k+1] << endl;
-						// rectangle(img_result, approx[k], approx[k + 1],Scalar(0, 0, 255),1,8,0);
+						rectangle(img_result, approx[k], approx[k + 1],Scalar(0, 0, 255),1,8,0);
 					}
 					for (int k = 0; k < size; k++) 
 						circle(img_result, approx[k], 3, Scalar(0, 0, 255));

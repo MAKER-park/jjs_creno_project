@@ -18,6 +18,7 @@ class tab2_connecting : public QWidget
 public:
     explicit tab2_connecting(QWidget *parent = nullptr);
     ~tab2_connecting();
+    QString dlgLineStr;
 
 private:
     Ui::tab2_connecting *ui;
@@ -25,6 +26,9 @@ private:
 
 private slots:
     void slotConnectToServer(bool);//connection
+    void slotSocketRecvUpdate(QString);
+//    void slotSocketSendData();
+//    void slotSocketSendData(QString);
 };
 
 #endif // TAB2_CONNECTING_H

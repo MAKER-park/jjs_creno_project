@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Tab7DatabaseChartPlot</class>
+ <widget class="QWidget" name="Tab7DatabaseChartPlot">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>544</width>
+    <height>355</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,9">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="9,1">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>Tw Cen MT Condensed Extra Bold</family>
+         <pointsize>28</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>DataBase Chart</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pPBRefresh">
+       <property name="text">
+        <string>새로고침</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="pHLayoutChart"/>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Tab3ControlPannel</class>
+ <widget class="QWidget" name="Tab3ControlPannel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>566</width>
+    <height>373</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>546</width>
+        <height>353</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>-10</y>
+         <width>544</width>
+         <height>355</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="IotQtClient.qrc">:/IotQtClient/Image/room.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pPBPlug">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>230</y>
+         <width>61</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IotQtClient.qrc">
+         <normaloff>:/IotQtClient/Image/plug_off.png</normaloff>
+         <normalon>:/IotQtClient/Image/plug_on.png</normalon>:/IotQtClient/Image/plug_off.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pPBLamp">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>60</y>
+         <width>61</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IotQtClient.qrc">
+         <normaloff>:/IotQtClient/Image/light_off.png</normaloff>
+         <normalon>:/IotQtClient/Image/light_on.png</normalon>:/IotQtClient/Image/light_off.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="IotQtClient.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -21,7 +21,8 @@ void display(Mat &im, Mat &bbox)
 int main(int argc, char* argv[])
 {
     VideoCapture cap;
-    cap.open(0);
+    cap.open("http://10.10.141.250:8081/?action=stream");
+    // cap.open(0);
 
     if (!cap.isOpened()) {
         cerr << "ERROR! Unable to open camera\n";
@@ -50,7 +51,7 @@ int main(int argc, char* argv[])
             display(inputImage, bbox);
             rectifiedImage.convertTo(rectifiedImage, CV_8UC3);
             imshow("Rectified QRCode", rectifiedImage);
-            //waitKey(0);
+            waitKey(0);
         }
         else
             cout << "QR Code not detected" << endl;

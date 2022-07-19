@@ -26,8 +26,9 @@ void tab2_connecting::slotConnectToServer(bool check){
             ui->pB_close->setEnabled(bOk);
         }
     }else{
-//        pSocketClient->slotClosedByServer();
+        pSocketClient->slotClosedByServer();
         ui->pB_connect->setText("서버 연결");
     }
 }
+
 
