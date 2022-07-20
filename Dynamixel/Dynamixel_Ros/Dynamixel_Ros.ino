@@ -23,6 +23,10 @@ const uint8_t DXL_ID = 1;
 const float DXL_PROTOCOL_VERSION = 2.0;
 
 ros::NodeHandle  nh;
+std_msgs::String str_msg;
+ros::Publisher chat("complete", &str_msg);
+
+char comp[9] = "complete";
 
 Dynamixel2Arduino dxl(DXL_SERIAL, DXL_DIR_PIN);
 Servo servo1;
@@ -45,12 +49,15 @@ void move_dn(const std_msgs::String &cmd_msg)
   if (result[0] == 0)
     hold(firstFloor);
   else if (result[1] == 0)
+  {
     putDown(firstFloor);
+    str_msg.data = comp;
+    chat.publish(&str_msg);
+  }
 }
 
 //ros를 사용하기 위한 명령어
 ros::Subscriber<std_msgs::String> sub1("grep_move", move_dn);
-//ros::Subscriber<std_msgs::Empty> sub2();
 
 void setup() {
   // put your setup code here, to run once:
@@ -64,14 +71,16 @@ void setup() {
   dxl.setPortProtocolVersion(DXL_PROTOCOL_VERSION);
   // Get DYNAMIXEL information
   dxl.ping(DXL_ID);
-  
+
   dxl.torqueOff(DXL_ID);
   dxl.setOperatingMode(DXL_ID, OP_EXTENDED_POSITION);
   dxl.torqueOn(DXL_ID);
+
+  nh.initNode();
 }
 
 void loop() { //루프문은 거드리지 말것 나머지는 함수로 구현
-  // put your main code here, to run repeatedly:
+  // put your main code here, to run repeatedly
   nh.spinOnce();
   delay(1);
 }
