@@ -6,10 +6,13 @@
 using namespace cv;
 using namespace std;
 
-vector<vector<int>> myColors{ {85,127,113,179,255,255}, // blue
-							  {15,83,139,43,255,255} }; // Yellow
-//vector<Scalar> myColorValues{ {0, 0, 255}, {255,255,0} }; // blue, Yellow
+Rect r1;
+Rect r2;
+Rect r3;
 
+vector<vector<int>> myColors{ {85,127,113,179,255,255}, // blue
+							  {0,0,234,77,255,255} }; // Yellow
+//vector<Scalar> myColorValues{ {0, 0, 255}, {255,255,0} }; // blue, Yellow
 Mat img, imgDil;	// Mat 클래스의 객체 img 생성
 
 void getContours(Mat imgDil) {
@@ -26,6 +29,7 @@ void getContours(Mat imgDil) {
 	{
 		int area = contourArea(contours[i]);
 		//cout << area << endl;
+		
 
 		vector<vector<Point>> conPoly(contours.size());
 		vector<Rect> boundRect(contours.size()); // 초록색 네모
@@ -36,26 +40,47 @@ void getContours(Mat imgDil) {
 			approxPolyDP(contours[i], conPoly[i], 0.02 * peri, true);
 
 			//cout << conPoly[i].size() << endl;
-			boundRect[i] = boundingRect(conPoly[i]); //  윤곽선의 경계면을 둘러싸는 사각형을 계산(conPoly[i]로 최소 크기 사각형) -> 경계 사각형 함수는 Rect 구조체를 반환
 
 			drawContours(img, conPoly, i, Scalar(255, 0, 255), 2);	// 모든 프로파일 그리기
-
-			rectangle(img, boundRect[i].tl(), boundRect[i].br(), Scalar(0, 255, 0), 5);
+			//line(img, conPoly[i][0], conPoly[i][3], Scalar(255, 255, 0), 5);
+			
+			boundRect[i] = boundingRect(conPoly[i]); //  윤곽선의 경계면을 둘러싸는 사각형을 계산(conPoly[i]로 최소 크기 사각형) -> 경계 사각형 함수는 Rect 구조체를 반환
+			//rectangle(img, boundRect[i].tl(), boundRect[i].br(), Scalar(0, 255, 0), 5);
 		}
-		if (area > 3000)
+
+		if (area < 1000)
 		{
-			//-- x 연장선
-			line(img, boundRect[i].tl(), Point(0, boundRect[i].tl().y), Scalar(255, 255, 0), 5);
-			line(img, boundRect[i].tl(), Point(720, boundRect[i].tl().y), Scalar(255, 255, 0), 5);
-			line(img, boundRect[i].br(), Point(0, boundRect[i].br().y), Scalar(255, 255, 0), 5);
-			line(img, boundRect[i].br(), Point(720, boundRect[i].br().y), Scalar(255, 255, 0), 5);
+			rectangle(img, Point(boundRect[i].tl().x, boundRect[i].tl().y), Point(boundRect[i].br().x, boundRect[i].br().y), Scalar(255, 255, 0), 5);
+			r1 = Rect(Point(boundRect[i].tl().x, boundRect[i].tl().y), Point(boundRect[i].br().x, boundRect[i].br().y));
+		}
 
-			//-- y 연장선
-			line(img, boundRect[i].tl(), Point(boundRect[i].tl().x, 0), Scalar(255, 255, 0), 5);
-			line(img, boundRect[i].tl(), Point(boundRect[i].tl().x, 480), Scalar(255, 255, 0), 5);
-			line(img, boundRect[i].br(), Point(boundRect[i].br().x, 0), Scalar(255, 255, 0), 5);
-			line(img, boundRect[i].br(), Point(boundRect[i].br().x, 480), Scalar(255, 255, 0), 5);
+		if (area > 1500)
+		{	
+			//---경고, 위험 사각 생성
+			rectangle(img, Point(boundRect[i].tl().x - 50, boundRect[i].tl().y - 50), Point(boundRect[i].br().x + 50, boundRect[i].br().y + 50), Scalar(0, 000, 255), 5); // 경고
+			r2 = Rect(Point(boundRect[i].tl().x - 50, boundRect[i].tl().y - 50), Point(boundRect[i].br().x + 50, boundRect[i].br().y + 50));
 
+			rectangle(img, Point(boundRect[i].tl().x - 100, boundRect[i].tl().y - 100), Point(boundRect[i].br().x + 100, boundRect[i].br().y + 100), Scalar(0, 255, 255), 5); // 위험
+			r3 = Rect(Point(boundRect[i].tl().x - 100, boundRect[i].tl().y - 100), Point(boundRect[i].br().x + 100, boundRect[i].br().y + 100));
+			
+
+		}
+		
+		Rect warning = r1 & r3;
+		Rect danger = r1 & r2;
+		/*cout << "r1 : " << r1 << endl;
+		cout << "r2 : " << r2 << endl;
+		cout << "r3 : " << r3 << endl;
+		cout << "r4 : " << warning.area() << endl;*/
+
+
+		if (warning.area() > 0 && danger.area() == 0)
+		{
+			cout << "Warning" << endl;
+		}
+		if (warning.area() > 0 && danger.area() > 0)
+		{
+			cout << "Danger" << endl;
 		}
 	}
 
@@ -76,11 +101,11 @@ void findColor(Mat img)
 	}
 }
 
-void main() {
+int main() {
 
 	//VideoCapture cap("http://cloud.park-cloud.co19.kr:8091/?action=stream");
-	//VideoCapture cap("http://10.10.141.250:8080/?action=stream");
-	VideoCapture cap(0);  // 웹캠 같은 경우 카메라의 id 번호를 넣어야 함, 하나만 있을 경우 0 으로 가능
+	VideoCapture cap("http://10.10.141.250:8080/?action=stream");
+	//VideoCapture cap(0);  // 웹캠 같은 경우 카메라의 id 번호를 넣어야 함, 하나만 있을 경우 0 으로 가능
 
 
 	while (true) {
@@ -92,4 +117,5 @@ void main() {
 
 		waitKey(1);				// 너무 느리지 않도록 1ms 로 작동
 	}
+	return 0;
 }
