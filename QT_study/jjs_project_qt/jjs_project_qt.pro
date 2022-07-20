@@ -1,4 +1,5 @@
-QT       += core gui network charts sql webenginewidgets multimedia multimediawidgets
+#QT       += core gui network charts sql webenginewidgets multimedia multimediawidgets
+QT       += core gui network charts sql webengine multimedia multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

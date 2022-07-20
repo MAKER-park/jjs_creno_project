@@ -29,7 +29,7 @@ void getContours(Mat imgDil) {
 	{
 		int area = contourArea(contours[i]);
 		//cout << area << endl;
-		
+
 
 		vector<vector<Point>> conPoly(contours.size());
 		vector<Rect> boundRect(contours.size()); // 초록색 네모
@@ -43,7 +43,7 @@ void getContours(Mat imgDil) {
 
 			drawContours(img, conPoly, i, Scalar(255, 0, 255), 2);	// 모든 프로파일 그리기
 			//line(img, conPoly[i][0], conPoly[i][3], Scalar(255, 255, 0), 5);
-			
+
 			boundRect[i] = boundingRect(conPoly[i]); //  윤곽선의 경계면을 둘러싸는 사각형을 계산(conPoly[i]로 최소 크기 사각형) -> 경계 사각형 함수는 Rect 구조체를 반환
 			//rectangle(img, boundRect[i].tl(), boundRect[i].br(), Scalar(0, 255, 0), 5);
 		}
@@ -55,17 +55,17 @@ void getContours(Mat imgDil) {
 		}
 
 		if (area > 1500)
-		{	
+		{
 			//---경고, 위험 사각 생성
 			rectangle(img, Point(boundRect[i].tl().x - 50, boundRect[i].tl().y - 50), Point(boundRect[i].br().x + 50, boundRect[i].br().y + 50), Scalar(0, 000, 255), 5); // 경고
 			r2 = Rect(Point(boundRect[i].tl().x - 50, boundRect[i].tl().y - 50), Point(boundRect[i].br().x + 50, boundRect[i].br().y + 50));
 
 			rectangle(img, Point(boundRect[i].tl().x - 100, boundRect[i].tl().y - 100), Point(boundRect[i].br().x + 100, boundRect[i].br().y + 100), Scalar(0, 255, 255), 5); // 위험
 			r3 = Rect(Point(boundRect[i].tl().x - 100, boundRect[i].tl().y - 100), Point(boundRect[i].br().x + 100, boundRect[i].br().y + 100));
-			
+
 
 		}
-		
+
 		Rect warning = r1 & r3;
 		Rect danger = r1 & r2;
 		/*cout << "r1 : " << r1 << endl;
@@ -86,10 +86,10 @@ void getContours(Mat imgDil) {
 
 }
 
-void findColor(Mat img)
+void findColor(Mat img) // 원하는 색을 찾는 함수
 {
 	Mat imgHSV;
-	cvtColor(img, imgHSV, COLOR_BGR2HSV);
+	cvtColor(img, imgHSV, COLOR_BGR2HSV); // RGB 이미지를 HSV 이미지로 변경
 
 	for (int i = 0; i < myColors.size(); i++)
 	{
