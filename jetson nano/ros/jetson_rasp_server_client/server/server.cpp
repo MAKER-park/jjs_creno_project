@@ -10,7 +10,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <dirent.h>
-#include <sys/timeh>
+#include <sys/time.h>
 #include <time.h>
 #include <errno.h>
 
