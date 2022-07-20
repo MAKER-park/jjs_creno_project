@@ -1,5 +1,5 @@
-#QT       += core gui network charts sql webenginewidgets multimedia multimediawidgets
-QT       += core gui network charts sql webengine multimedia multimediawidgets
+QT       += core gui network charts sql webenginewidgets multimedia multimediawidgets
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,13 +12,11 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    socketclient.cpp \
     tab1_camera_view.cpp \
     tab2_connecting.cpp
 
 HEADERS += \
     mainwindow.h \
-    socketclient.h \
     tab1_camera_view.h \
     tab2_connecting.h
 

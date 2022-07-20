@@ -17,6 +17,26 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>IP</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="pLE_IP"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>PORT</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="pLE_PORT"/>
+     </item>
+     <item>
       <widget class="QPushButton" name="pB_connect">
        <property name="text">
         <string>서버 연결</string>
@@ -39,7 +59,14 @@
     </layout>
    </item>
    <item>
-    <widget class="QTextBrowser" name="log"/>
+    <widget class="QTextBrowser" name="plog_console"/>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pPB_TEST">
+     <property name="text">
+      <string>TEST_Send_data</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
