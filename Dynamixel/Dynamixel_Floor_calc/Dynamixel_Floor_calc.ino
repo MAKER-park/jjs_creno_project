@@ -14,10 +14,6 @@
 #define DXL_SERIAL   Serial3
 #define DEBUG_SERIAL Serial
 
-#define home 0
-#define firstFloor 3000
-#define secondFloor 2500
-
 const int DXL_DIR_PIN = 84;
 const uint8_t DXL_ID = 1;
 const float DXL_PROTOCOL_VERSION = 2.0;
@@ -44,11 +40,11 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  dxl.setGoalPosition(DXL_ID, 9000);
+  dxl.setGoalPosition(DXL_ID, 9000);//1층
   delay(5000);
-  dxl.setGoalPosition(DXL_ID, 5000);
+  dxl.setGoalPosition(DXL_ID, 5000);//2층
   delay(5000);
-  dxl.setGoalPosition(DXL_ID, 0);
+  dxl.setGoalPosition(DXL_ID, 0);//맨위
   delay(5000);
 
 }
