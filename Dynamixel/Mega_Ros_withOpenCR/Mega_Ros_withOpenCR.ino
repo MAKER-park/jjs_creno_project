@@ -38,12 +38,13 @@ ros::NodeHandle  nh;
 
 void* recv_msg(void* arg);
 
-std_msgs::String str_msg;
-ros::Publisher opencr_msg("opencr_msg", &str_msg);
+std_msgs::UInt16 int_msg;
+ros::Publisher opencr_msg1("/grep_hold", &int_msg);
+ros::Publisher opencr_msg2("/grep_putDown", &int_msg);
 
 int joy_x, joy_y;
 int x = 0, y = 0;
-int location[] = {0, 0}; //최댓값 2,1
+int location[] = {0, 0, 0, 0, 0, 0}; //최댓값 2,1
 
 // 필요한 함수들
 void HOME(); //초기상태로 돌아오는 함수
@@ -53,16 +54,21 @@ int step_dir(int value, int dir); //모터 방향제어
 int flag = RESET;
 bool input_value = false;
 
-void move_hold(const std_msgs::String &cmd_msg) { //좌표값을 파싱으로 x축, y축 값에따라 크레인 이동(컨테이너 올릴 좌표)
+void step_move(const std_msgs::String &cmd_msg) { //좌표값을 파싱으로 x축, y축 값에따라 크레인 이동(컨테이너 올릴 좌표)
   if (flag == READY) {
     Split(cmd_msg.data, ',');
     crane_move(location[0], location[1]);
+    int_msg.data = location[2];
+    opencr_msg1.publish(&int_msg);
   }
 }
 
-void move_putDown(const std_msgs::String &cmd_msg) { //좌표값을 파싱으로 x축, y축 값에따라 크레인 이동(컨테이너 내릴 좌표)
-  if (flag == READY)
-    crane_move(location[2], location[3]);
+void next_move(const std_msgs::Empty &cmd_msg) { //좌표값을 파싱으로 x축, y축 값에따라 크레인 이동(컨테이너 올릴 좌표)
+  if (flag == READY) {
+    crane_move(location[3], location[4]);
+    int_msg.data = location[5];
+    opencr_msg2.publish(&int_msg);
+  }
 }
 
 void home_cb(const std_msgs::Empty& msg) { //초기상태로 돌아오는 함수
@@ -74,9 +80,9 @@ void home_cb(const std_msgs::Empty& msg) { //초기상태로 돌아오는 함수
 }
 
 //ros를 사용하기 위한 명령어
-ros::Subscriber<std_msgs::String> sub1("move_hold", move_hold);
-ros::Subscriber<std_msgs::String> sub2("move_putDown", move_putDown);
-ros::Subscriber<std_msgs::Empty> sub3("home", home_cb);
+ros::Subscriber<std_msgs::String> sub1("/step_move", step_move);
+ros::Subscriber<std_msgs::Empty> sub2("/next_move", next_move);
+ros::Subscriber<std_msgs::Empty> sub3("/home", home_cb);
 
 void setup() {
   pinMode(X_STEP, OUTPUT);
@@ -103,8 +109,10 @@ void setup() {
   nh.initNode();
   nh.subscribe(sub1);
   nh.subscribe(sub2);
+  nh.subscribe(sub3);
 
-  nh.advertise(opencr_msg);
+  nh.advertise(opencr_msg1);
+  nh.advertise(opencr_msg2);
 
   HOME();
 }
