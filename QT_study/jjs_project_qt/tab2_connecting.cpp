@@ -8,37 +8,46 @@ tab2_connecting::tab2_connecting(QWidget *parent) :
     ui(new Ui::tab2_connecting)
 {
     ui->setupUi(this);
-    ui->pLE_IP->setText("cloud.park-cloud.co19.kr");
-    ui->pLE_PORT->setText("5040");
+    pqsocket = new qsocket();
+    ui->pLE_IP->setText(pqsocket->IP);
+    ui->pLE_PORT->setText(pqsocket->PORT);
     ui->pB_close->setEnabled(false);
     ui->pB_connect->setEnabled(true);
     connect(ui->pB_connect,SIGNAL(clicked(bool)),this,SLOT(slotConnectToServer()));//connect
     connect(ui->pB_close, SIGNAL(clicked(bool)),this, SLOT(disconToHost()));//disconnect
     connect(ui->pPB_TEST, SIGNAL(clicked(bool)),this,SLOT(send_test_Data()));//testsend
+
+
+    connect(pqsocket,SIGNAL(sigSocketRecv(QString)),this,SLOT(recvice_Data(QString)));
 }
 
 tab2_connecting::~tab2_connecting()
 {
     delete ui;
-    delete socket;
-
 }
 
 //recive data
-void tab2_connecting::Recvice_Data(){
-//    qDebug()<<"something recv! hello!! \n";
-    if(!socket->canReadLine()){
-        QString Recv_Data= QString::fromUtf8(socket->readLine());
-        Recv_Data = Recv_Data.left(Recv_Data.length());
-        ui->plog_console->insertPlainText("server : " + Recv_Data + "\n");
+void tab2_connecting::recvice_Data(QString msg){
+    ui->plog_console->insertPlainText("server : "+msg+"\n");
+//    pqsocket->Recvice_Data();
+    if((msg.indexOf("OK") != -1))//get data respon! tab1 move button after
+    {
+        qDebug()<<"get command!\n";
+//        emit sigTab4RecvData(msg);
+//        emit sigTab5RecvData(msg);
+//        emit sigTab6RecvData(msg);
+    }else if((msg.indexOf("compelete")) != -1){
+        qDebug()<<"done command!\n";
     }
+
 }
 
 //connection button click
 void tab2_connecting::slotConnectToServer(){
+    bool result;
     QMessageBox msgBox;
     msgBox.setWindowTitle("서버 연결 확인");
-    msgBox.setText("서버 연결 할거?");
+    msgBox.setText("IP : "+ui->pLE_IP->text()+" PORT : "+ui->pLE_PORT->text()+"에 연결 하시겠습니까?");
     msgBox.setStandardButtons(QMessageBox::Yes);
     msgBox.addButton(QMessageBox::No);
     msgBox.setDefaultButton(QMessageBox::Yes);
@@ -48,18 +57,18 @@ void tab2_connecting::slotConnectToServer(){
         QString PORT = ui->pLE_PORT->text();
         qDebug()<< "IP : " << IP.toUtf8().constData();
         qDebug()<< "PORT : " << PORT.toUtf8().constData();
-        socket = new QTcpSocket(this);
-        connect(socket, SIGNAL(readyRead()),this,SLOT(Recvice_Data()));//recv_data;
-        fd_flag = connectToHost(ui->pLE_IP->text().toUtf8().constData(), ui->pLE_PORT->text().toUtf8().constData());//server info send
-        if(!fd_flag){
+        result = pqsocket->ConnectToHost(IP.toUtf8().constData(), PORT.toUtf8().constData());
+
+        if(!result){
             //connect fail!
             ui->plog_console->insertPlainText("Socket connect fail\n");
-            ui->pB_close->setEnabled(fd_flag);
-            ui->pB_connect->setEnabled(!fd_flag);
+            ui->pB_close->setEnabled(!fd_flag);
+            ui->pB_connect->setEnabled(fd_flag);
         }else{
             ui->plog_console->insertPlainText("Socket connect sucees!!\n");
-            ui->pB_close->setEnabled(fd_flag);
-            ui->pB_connect->setEnabled(!fd_flag);
+//            pqsocket->Recvice_Data();
+            ui->pB_close->setEnabled(!fd_flag);
+            ui->pB_connect->setEnabled(fd_flag);
         }
     }else {
       // do something else
@@ -69,13 +78,12 @@ void tab2_connecting::slotConnectToServer(){
 bool tab2_connecting::connectToHost(QString host, QString port)
 {
     //server connection!
-    socket->connectToHost(host, port.toInt()); // ip address, port
-    return socket->waitForConnected();
+//    socket->connectToHost(host, port.toInt()); // ip address, port
+//    return socket->waitForConnected();
 }
 //server disconnection!
 void tab2_connecting::disconToHost(){
-    socket->disconnectFromHost();
-    bool result = socket->waitForDisconnected();
+    bool result = pqsocket->DisconToHost();
     if(result){
         ui->plog_console->insertPlainText("something error occur!\n");
     }else{//result = false
@@ -85,16 +93,12 @@ void tab2_connecting::disconToHost(){
     }
 }
 
-
 //send test data!
 bool tab2_connecting::send_test_Data(){
-    if(socket->state() == QAbstractSocket::ConnectedState){//check connection! & test data send
-        socket->write(QString("[1] move#2,1#1,1\n").toUtf8());
-        ui->plog_console->insertPlainText("test send : move#1#2#3\n");
-    }else{
-        ui->plog_console->insertPlainText("check! your server connection!\n");
-    }
+    pqsocket->Send_test_Data("[1] move#2,1#1,1\n");
 }
 
-
-
+//realsend
+void tab2_connecting::send_Data(QString msg){
+    pqsocket->Send_test_Data(msg);
+}

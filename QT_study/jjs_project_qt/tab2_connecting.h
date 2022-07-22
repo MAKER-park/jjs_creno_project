@@ -9,6 +9,8 @@
 #include <QtNetwork>
 #include <QTcpSocket>
 
+#include "qsocket.h"
+
 namespace Ui {
 class tab2_connecting;
 }
@@ -21,10 +23,11 @@ public:
     explicit tab2_connecting(QWidget *parent = nullptr);
     ~tab2_connecting();
     QString dlgLineStr;
+    qsocket *pqsocket;
 
 private:
     Ui::tab2_connecting *ui;
-    QTcpSocket *socket;//creat socket
+//    QTcpSocket *socket;//creat socket
     bool fd_flag = false;
     bool send_flag = false;
     int cnt = 0;
@@ -34,18 +37,17 @@ private slots:
     bool connectToHost(QString host, QString port);//connection to server
     void disconToHost(); //disconnection to server
     bool send_test_Data(); //send test message
-    void Recvice_Data();
 
+    void send_Data(QString);
+
+    void recvice_Data(QString);//get recive data
 
 //public slots:
 //
 
-//signals:
-//    void sigSocketRecv(QString);
-//    void sigTab3RecvData(QString);
-//    void sigTab4RecvData(QString);
-//    void sigTab5RecvData(QString);
-//    void  sigTab6RecvData(QString);
+signals: //send variable or funcution!
+    void sendRespone(QString);//commend respon send to tab1
+
 
 };
 

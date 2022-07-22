@@ -28,9 +28,9 @@ signals:
     void sigSocketRecvData(QString);
 
 private slots:
-	void slotSocketReadData();
-	void slotSocketError();
-	void slotConnectServer();
+    void slotSocketReadData();
+    void slotSocketError();
+    void slotConnectServer();
 
 public slots:
     void slotConnectToServer(bool&);

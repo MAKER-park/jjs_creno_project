@@ -13,6 +13,8 @@
 #include <QTimer>
 //recoder
 #include <QMediaRecorder>
+#include <QtSql>
+#include <QSqlDatabase>
 
 namespace Ui {
 class Tab1_Camera_view;
@@ -38,11 +40,14 @@ private slots:
     void url_load();
     void url_pause();
     void capture();
-
+    void move();
     void showTime();
 
-//signals:
-//    void sigSocketRecv(QString);
+
+
+
+signals:
+    void sigsend_tab1(QString);
 
 };
 
