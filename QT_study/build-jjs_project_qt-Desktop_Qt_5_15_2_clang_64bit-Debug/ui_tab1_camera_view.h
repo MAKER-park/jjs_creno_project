@@ -15,7 +15,6 @@
 #include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -34,12 +33,11 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_2;
     QLCDNumber *pLN_Ypos;
-    QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout_4;
     QPushButton *pPB_START;
     QPushButton *pPB_PAUSE;
     QPushButton *pPB_CAPTURE;
-    QPushButton *pPB_ETC;
+    QPushButton *pPB_MOVE;
 
     void setupUi(QWidget *Tab1_Camera_view)
     {
@@ -101,13 +99,8 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_3);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_2->addItem(verticalSpacer);
-
         verticalLayout_2->setStretch(0, 2);
         verticalLayout_2->setStretch(1, 2);
-        verticalLayout_2->setStretch(2, 5);
 
         horizontalLayout->addLayout(verticalLayout_2);
 
@@ -136,11 +129,11 @@ public:
 
         horizontalLayout_4->addWidget(pPB_CAPTURE);
 
-        pPB_ETC = new QPushButton(Tab1_Camera_view);
-        pPB_ETC->setObjectName(QString::fromUtf8("pPB_ETC"));
-        pPB_ETC->setFont(font);
+        pPB_MOVE = new QPushButton(Tab1_Camera_view);
+        pPB_MOVE->setObjectName(QString::fromUtf8("pPB_MOVE"));
+        pPB_MOVE->setFont(font);
 
-        horizontalLayout_4->addWidget(pPB_ETC);
+        horizontalLayout_4->addWidget(pPB_MOVE);
 
 
         verticalLayout_3->addLayout(horizontalLayout_4);
@@ -161,7 +154,7 @@ public:
         pPB_START->setText(QCoreApplication::translate("Tab1_Camera_view", "START", nullptr));
         pPB_PAUSE->setText(QCoreApplication::translate("Tab1_Camera_view", "PAUSE", nullptr));
         pPB_CAPTURE->setText(QCoreApplication::translate("Tab1_Camera_view", "CAPTURE", nullptr));
-        pPB_ETC->setText(QCoreApplication::translate("Tab1_Camera_view", "ETC", nullptr));
+        pPB_MOVE->setText(QCoreApplication::translate("Tab1_Camera_view", "MOVE", nullptr));
     } // retranslateUi
 
 };

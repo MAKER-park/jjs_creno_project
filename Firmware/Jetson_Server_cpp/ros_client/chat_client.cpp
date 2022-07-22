@@ -38,8 +38,8 @@ class ros_server_topic
 public:
 	ros_server_topic()
 	{
-		mega_pub = _n.advertise<std_msgs::String>("/grep_move", 100);
-		mega_sub = _n.subscribe("/mega_complete", 100, &ros_server_topic::mega_status, this);
+		mega_pub = _n.advertise<std_msgs::String>("/step_move", 100);
+		mega_sub = _n.subscribe("/complete", 100, &ros_server_topic::mega_status, this);
 	}
 
 	void mega_callback(const std_msgs::String &input) {		
@@ -145,7 +145,7 @@ void* recv_msg(void* arg) {
 		if(result == 0) {
 			send_data = name_msg;
 			pos = send_data.find(']');
-			send_data = send_data.substr(pos + 2);
+			send_data = send_data.substr(pos + 6);
 			cout << "send_data : " << send_data << endl;
 			send_message.data = send_data;
 			ROSProject.mega_callback(send_message);

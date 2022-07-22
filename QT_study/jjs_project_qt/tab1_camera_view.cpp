@@ -16,19 +16,25 @@ Tab1_Camera_view::Tab1_Camera_view(QWidget *parent) :
         connect(timer , SIGNAL(timeout()),this,SLOT(showTime()));
         timer->start(50);//0.05sec
     }
+//    qDebug()<<"dddddd : " << QSqlDatabase
+    qDebug()<<"dddddd : " << QSqlDatabase::drivers();
     //start_button
-//    connect(ui->pPB_START,SIGNAL(clicked()),this,SLOT(url_load(cam_url)));//왜 변수 붙으면 난리나냐....
     connect(ui->pPB_START,SIGNAL(clicked()),this,SLOT(url_load()));
     //pause_button
     connect(ui->pPB_PAUSE,SIGNAL(clicked()),this,SLOT(url_pause()));
     //capture_button
     connect(ui->pPB_CAPTURE,SIGNAL(clicked()),this,SLOT(capture()));
-
+    //move_button
+    connect(ui->pPB_MOVE,SIGNAL(clicked()),this,SLOT(move()));
 }
 
 Tab1_Camera_view::~Tab1_Camera_view()
 {
     delete ui;
+}
+
+void Tab1_Camera_view::move(){
+    emit sigsend_tab1("jdfkjsdl;fal;jdfklajsdkljfklfsdjklfj\n");
 }
 
 void Tab1_Camera_view::url_load(){
