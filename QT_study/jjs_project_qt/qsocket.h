@@ -32,7 +32,7 @@ private:
 
 
 public slots:
-    bool SlotConnectToServer();
+//    bool SlotConnectToServer();
     bool ConnectToHost(QString host, QString port);//connection to server
     bool DisconToHost(); //disconnection to server
     void Send_test_Data(QString); //send test message

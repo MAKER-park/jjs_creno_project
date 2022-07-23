@@ -132,6 +132,7 @@ public:
         pPB_MOVE = new QPushButton(Tab1_Camera_view);
         pPB_MOVE->setObjectName(QString::fromUtf8("pPB_MOVE"));
         pPB_MOVE->setFont(font);
+        pPB_MOVE->setCheckable(true);
 
         horizontalLayout_4->addWidget(pPB_MOVE);
 

@@ -16,8 +16,8 @@ Tab1_Camera_view::Tab1_Camera_view(QWidget *parent) :
         connect(timer , SIGNAL(timeout()),this,SLOT(showTime()));
         timer->start(50);//0.05sec
     }
-//    qDebug()<<"dddddd : " << QSqlDatabase
-    qDebug()<<"dddddd : " << QSqlDatabase::drivers();
+    qDebug()<<"drivers : " << QSqlDatabase::drivers();
+    ui->pPB_MOVE->setEnabled(true); //default
     //start_button
     connect(ui->pPB_START,SIGNAL(clicked()),this,SLOT(url_load()));
     //pause_button
@@ -34,7 +34,7 @@ Tab1_Camera_view::~Tab1_Camera_view()
 }
 
 void Tab1_Camera_view::move(){
-    emit sigsend_tab1("jdfkjsdl;fal;jdfklajsdkljfklfsdjklfj\n");
+    emit sigsend_tab1("[1]move1,2,3#1,2,2\n");
 }
 
 void Tab1_Camera_view::url_load(){
@@ -90,5 +90,13 @@ void Tab1_Camera_view::showTime(){
     if(pos_x > 100){
         pos_x = 0;
         pos_y++;
+    }
+}
+
+void Tab1_Camera_view::getRespone(QString respon){
+    if((respon.indexOf("ok"))!=-1){
+        ui->pPB_MOVE->setEnabled(false);
+    }else if((respon.indexOf("compelete"))!=-1){
+        ui->pPB_MOVE->setEnabled(true);
     }
 }

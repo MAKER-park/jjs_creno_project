@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_qsocket_t {
-    QByteArrayData data[10];
-    char stringdata0[108];
+    QByteArrayData data[9];
+    char stringdata0[88];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,18 +35,17 @@ static const qt_meta_stringdata_qsocket_t qt_meta_stringdata_qsocket = {
 QT_MOC_LITERAL(0, 0, 7), // "qsocket"
 QT_MOC_LITERAL(1, 8, 13), // "sigSocketRecv"
 QT_MOC_LITERAL(2, 22, 0), // ""
-QT_MOC_LITERAL(3, 23, 19), // "SlotConnectToServer"
-QT_MOC_LITERAL(4, 43, 13), // "ConnectToHost"
-QT_MOC_LITERAL(5, 57, 4), // "host"
-QT_MOC_LITERAL(6, 62, 4), // "port"
-QT_MOC_LITERAL(7, 67, 12), // "DisconToHost"
-QT_MOC_LITERAL(8, 80, 14), // "Send_test_Data"
-QT_MOC_LITERAL(9, 95, 12) // "Recvice_Data"
+QT_MOC_LITERAL(3, 23, 13), // "ConnectToHost"
+QT_MOC_LITERAL(4, 37, 4), // "host"
+QT_MOC_LITERAL(5, 42, 4), // "port"
+QT_MOC_LITERAL(6, 47, 12), // "DisconToHost"
+QT_MOC_LITERAL(7, 60, 14), // "Send_test_Data"
+QT_MOC_LITERAL(8, 75, 12) // "Recvice_Data"
 
     },
-    "qsocket\0sigSocketRecv\0\0SlotConnectToServer\0"
-    "ConnectToHost\0host\0port\0DisconToHost\0"
-    "Send_test_Data\0Recvice_Data"
+    "qsocket\0sigSocketRecv\0\0ConnectToHost\0"
+    "host\0port\0DisconToHost\0Send_test_Data\0"
+    "Recvice_Data"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,7 +55,7 @@ static const uint qt_meta_data_qsocket[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -64,21 +63,19 @@ static const uint qt_meta_data_qsocket[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   44,    2, 0x06 /* Public */,
+       1,    1,   39,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   47,    2, 0x0a /* Public */,
-       4,    2,   48,    2, 0x0a /* Public */,
-       7,    0,   53,    2, 0x0a /* Public */,
-       8,    1,   54,    2, 0x0a /* Public */,
-       9,    0,   57,    2, 0x0a /* Public */,
+       3,    2,   42,    2, 0x0a /* Public */,
+       6,    0,   47,    2, 0x0a /* Public */,
+       7,    1,   48,    2, 0x0a /* Public */,
+       8,    0,   51,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
-    QMetaType::Bool,
-    QMetaType::Bool, QMetaType::QString, QMetaType::QString,    5,    6,
+    QMetaType::Bool, QMetaType::QString, QMetaType::QString,    4,    5,
     QMetaType::Bool,
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void,
@@ -93,14 +90,12 @@ void qsocket::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->sigSocketRecv((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 1: { bool _r = _t->SlotConnectToServer();
+        case 1: { bool _r = _t->ConnectToHost((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 2: { bool _r = _t->ConnectToHost((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])));
+        case 2: { bool _r = _t->DisconToHost();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 3: { bool _r = _t->DisconToHost();
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 4: _t->Send_test_Data((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 5: _t->Recvice_Data(); break;
+        case 3: _t->Send_test_Data((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 4: _t->Recvice_Data(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -144,13 +139,13 @@ int qsocket::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 5)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 6;
+        _id -= 5;
     }
     return _id;
 }

@@ -129,6 +129,9 @@
        <property name="text">
         <string>MOVE</string>
        </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
     </layout>

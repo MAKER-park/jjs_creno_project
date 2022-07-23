@@ -19,11 +19,6 @@ void qsocket::Recvice_Data(){//recvie data
     }
 }
 
-bool qsocket::SlotConnectToServer(){
-}
-
-
-
 bool qsocket::ConnectToHost(QString HOST_IP, QString HOST_PORT ){
     socket->connectToHost(HOST_IP,HOST_PORT.toInt());
     return socket->waitForConnected();
@@ -32,6 +27,7 @@ bool qsocket::ConnectToHost(QString HOST_IP, QString HOST_PORT ){
 bool qsocket::DisconToHost(){
     socket->disconnectFromHost();
     bool result = socket->waitForDisconnected();
+    //if(time == 14:50) return te sil;
     return result;
 }
 

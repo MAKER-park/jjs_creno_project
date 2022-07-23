@@ -18,7 +18,7 @@ tab2_connecting::tab2_connecting(QWidget *parent) :
     connect(ui->pPB_TEST, SIGNAL(clicked(bool)),this,SLOT(send_test_Data()));//testsend
 
 
-    connect(pqsocket,SIGNAL(sigSocketRecv(QString)),this,SLOT(recvice_Data(QString)));
+    connect(pqsocket,SIGNAL(sigSocketRecv(QString)),this,SLOT(recvice_Data(QString)));//get pqsocket->tab2
 }
 
 tab2_connecting::~tab2_connecting()
@@ -30,14 +30,13 @@ tab2_connecting::~tab2_connecting()
 void tab2_connecting::recvice_Data(QString msg){
     ui->plog_console->insertPlainText("server : "+msg+"\n");
 //    pqsocket->Recvice_Data();
-    if((msg.indexOf("OK") != -1))//get data respon! tab1 move button after
+    if((msg.indexOf("ok") != -1))//get data respon! tab1 move button after
     {
         qDebug()<<"get command!\n";
-//        emit sigTab4RecvData(msg);
-//        emit sigTab5RecvData(msg);
-//        emit sigTab6RecvData(msg);
+        emit sendRespone(msg);
     }else if((msg.indexOf("compelete")) != -1){
         qDebug()<<"done command!\n";
+        emit sendRespone(msg);
     }
 
 }

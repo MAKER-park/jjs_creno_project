@@ -43,6 +43,9 @@ private slots:
     void move();
     void showTime();
 
+    //for get data tab2
+    void getRespone(QString);
+
 
 
 

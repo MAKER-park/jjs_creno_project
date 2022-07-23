@@ -19,9 +19,10 @@ MainWindow::MainWindow(QWidget *parent)
     pTab2_Setting = new tab2_connecting(ui->pTab2);
     ui->pTab2->setLayout(pTab2_Setting->layout());
 
-    //set tab2 tab1 connect
+    //set tab1->tab2 connect for send
     connect(pTab1_Camera_View , SIGNAL(sigsend_tab1(QString)),pTab2_Setting, SLOT(send_Data(QString)));//다른곳에 있는 기능및 변수 넘기기
-
+    //set tab2->tab1 connect for recv
+    connect(pTab2_Setting, SIGNAL(sendRespone(QString)),pTab1_Camera_View, SLOT(getRespone(QString)));
 }
 
 MainWindow::~MainWindow()
