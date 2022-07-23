@@ -11,7 +11,7 @@ int main(void)
     
     QRCodeDetector detector;
 
-    Mat frame, gray, canny;
+    Mat frame, gray;
 
     while (true)
     {
@@ -27,17 +27,18 @@ int main(void)
         vector<Point> points;
 
         if (detector.detect(gray, points)) {
-            polylines(frame, points, true, Scalar(0, 255, 255), 2);
+            polylines(gray, points, true, Scalar(0, 255, 255), 2);
 
             String info = detector.decode(gray, points);
             if (!info.empty()) {
-                polylines(frame, points, true, Scalar(0, 0, 255), 2);
+                polylines(gray, points, true, Scalar(0, 0, 255), 2);
                 cout << "Decoded Data : " << info << endl;
             }
         }
 
-        imshow("gray", gray);
+        //imshow("gray", gray);
         imshow("frame", frame);
+        waitKey(1);
         if (waitKey(1) == 27)
             break;
     }
