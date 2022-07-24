@@ -38,16 +38,20 @@ void Tab1_Camera_view::move(){
 }
 
 void Tab1_Camera_view::url_load(){
-    QString url = "http://cloud.park-cloud.co19.kr:8090/?action=stream";
-    qDebug()<<"url : " << url;
-    QString url_2 = "http://cloud.park-cloud.co19.kr:8091/?action=stream";
-    qDebug()<<"url : " << url_2;
-    //webviewsetting for layout
-//    pWebView = new QWebEngineView(this);//계속하면 레이아웃이 계속 생성된다.
-    pWebView->load(QUrl(url));
-    pWebView_2->load(QUrl(url_2));
-    ui->pVL_Cam->addWidget(pWebView);
-    ui->pVL_Cam->addWidget(pWebView_2);
+    if(IP.isEmpty()){
+    }else{
+        QString url = "http://"+IP+":8080/?action=stream";
+        qDebug()<<"url : " << url;
+        QString url_2 = "http://"+IP+":8081/?action=stream";
+        qDebug()<<"url : " << url_2;
+        //webviewsetting for layout
+    //    pWebView = new QWebEngineView(this);//계속하면 레이아웃이 계속 생성된다.
+        pWebView->load(QUrl(url));
+        pWebView_2->load(QUrl(url_2));
+        ui->pVL_Cam->addWidget(pWebView);
+        ui->pVL_Cam->addWidget(pWebView_2);
+    }
+
 }
 
 void Tab1_Camera_view::url_pause(){
@@ -99,4 +103,8 @@ void Tab1_Camera_view::getRespone(QString respon){
     }else if((respon.indexOf("compelete"))!=-1){
         ui->pPB_MOVE->setEnabled(true);
     }
+}
+
+void Tab1_Camera_view::getIp(QString ip){
+    IP = ip;
 }

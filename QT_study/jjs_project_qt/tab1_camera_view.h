@@ -35,6 +35,7 @@ private:
     bool test_timer_set = false;
     qint16 pos_x = 0;
     qint16 pos_y = 0;
+    QString IP;
 
 private slots:
     void url_load();
@@ -45,9 +46,8 @@ private slots:
 
     //for get data tab2
     void getRespone(QString);
-
-
-
+    //for get ip tab2
+    void getIp(QString);
 
 signals:
     void sigsend_tab1(QString);

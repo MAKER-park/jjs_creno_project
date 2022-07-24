@@ -48,7 +48,7 @@ private slots:
 signals: //send variable or funcution!
     void sendRespone(QString);//commend respon send to tab1
 
-
+    void sigsend_IP(QString);//send IP for stream
 };
 
 #endif // TAB2_CONNECTING_H
