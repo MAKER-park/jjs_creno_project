@@ -18,7 +18,7 @@
 
 #define zeroFloor 0
 #define firstFloor 9000
-#define secondFloor 7500
+#define secondFloor 5000
 
 uint8_t now_value;
 const int DXL_DIR_PIN = 84;
@@ -28,7 +28,7 @@ const float DXL_PROTOCOL_VERSION = 2.0;
 ros::NodeHandle  nh;
 std_msgs::Empty str_msg;
 ros::Publisher chat1("complete", &str_msg);
-ros::Publisher chat2("next_step", &str_msg);
+ros::Publisher chat2("next_move", &str_msg);
 
 Dynamixel2Arduino dxl(DXL_SERIAL, DXL_DIR_PIN);
 Servo servo1;
