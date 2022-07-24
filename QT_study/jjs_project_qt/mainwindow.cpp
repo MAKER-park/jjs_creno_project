@@ -23,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(pTab1_Camera_View , SIGNAL(sigsend_tab1(QString)),pTab2_Setting, SLOT(send_Data(QString)));//다른곳에 있는 기능및 변수 넘기기
     //set tab2->tab1 connect for recv
     connect(pTab2_Setting, SIGNAL(sendRespone(QString)),pTab1_Camera_View, SLOT(getRespone(QString)));
+    //set tab2->tab1 connect for IP stream
+    connect(pTab2_Setting, SIGNAL(sigsend_IP(QString)),pTab1_Camera_View, SLOT(getIp(QString)));
 }
 
 MainWindow::~MainWindow()

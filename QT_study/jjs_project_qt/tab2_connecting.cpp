@@ -68,6 +68,7 @@ void tab2_connecting::slotConnectToServer(){
 //            pqsocket->Recvice_Data();
             ui->pB_close->setEnabled(!fd_flag);
             ui->pB_connect->setEnabled(fd_flag);
+            emit sigsend_IP(IP);
         }
     }else {
       // do something else
