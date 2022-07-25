@@ -13,71 +13,35 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3" stretch="9,1">
+  <layout class="QVBoxLayout" name="verticalLayout_3" stretch="8,1,1">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="8,2">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="8">
      <item>
       <layout class="QVBoxLayout" name="pVL_Cam"/>
      </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,2">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,8">
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="font">
-            <font>
-             <pointsize>30</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>X</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLCDNumber" name="pLN_Xpos">
-           <property name="font">
-            <font>
-             <pointsize>40</pointsize>
-            </font>
-           </property>
-           <property name="digitCount">
-            <number>3</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,8">
-         <item>
-          <widget class="QLabel" name="label_2">
-           <property name="font">
-            <font>
-             <pointsize>30</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Y</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLCDNumber" name="pLN_Ypos">
-           <property name="font">
-            <font>
-             <pointsize>40</pointsize>
-            </font>
-           </property>
-           <property name="digitCount">
-            <number>3</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>MOVE</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="pLE_MOVE"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>TO</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="pLE_TO"/>
      </item>
     </layout>
    </item>

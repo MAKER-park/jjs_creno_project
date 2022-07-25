@@ -34,7 +34,39 @@ Tab1_Camera_view::~Tab1_Camera_view()
 }
 
 void Tab1_Camera_view::move(){
-    emit sigsend_tab1("[1]move1,2,3#1,2,2\n");
+    //click button move
+    QString move,to;
+    move = ui->pLE_MOVE->text();
+    to = ui->pLE_TO->text();
+
+    if(move.isEmpty() && to.isEmpty()){
+        QMessageBox::warning(this,"경고","좌표값을 확인해 주세요.");
+        //msgbox check your location
+    }else{
+        int move_x = move.split(",")[0].toInt();
+        int move_y = move.split(",")[1].toInt();
+        int move_z = move.split(",")[2].toInt();
+        qDebug()<< "mx : " << move_x << " my : " << move_y << "mz : " << move_z << "\n";
+
+        int to_x = to.split(",")[0].toInt();
+        int to_y = to.split(",")[1].toInt();
+        int to_z = to.split(",")[2].toInt();
+        qDebug()<< "tx : " << to_x << " ty : " << to_y << "tz : " << to_z << "\n";
+
+        if(move_x < 4 && move_y < 3 && move_z < 3 ){
+            if(to_x < 4 && to_y < 3 && to_z < 3){
+                emit sigsend_tab1("[1]move"+ move +" "+ to + "\n");
+            }else{
+                QMessageBox::warning(this,"경고","좌표값을 확인해 주세요.");
+                //msgbox check your location
+            }
+        }else{
+            QMessageBox::warning(this,"경고","좌표값을 확인해 주세요.");
+            //msgbox check your location
+        }
+
+    }
+
 }
 
 void Tab1_Camera_view::url_load(){
@@ -84,18 +116,19 @@ void Tab1_Camera_view::capture(){
         qPixmap.save(fileName,0,500);
         qPixmap_2.save(fileName_2,0,500);
     }else{
-        qDebug()<<"not active no captuer!!";
+        //start button 을 눌러주세.
+        QMessageBox::warning(this,"경고","재생중인 영상이 없습니다.");
     }
 }
 
-void Tab1_Camera_view::showTime(){
-    ui->pLN_Xpos->display(pos_x++);
-    ui->pLN_Ypos->display(pos_y);
-    if(pos_x > 100){
-        pos_x = 0;
-        pos_y++;
-    }
-}
+//void Tab1_Camera_view::showTime(){
+//    ui->pLN_Xpos->display(pos_x++);
+//    ui->pLN_Ypos->display(pos_y);
+//    if(pos_x > 100){
+//        pos_x = 0;
+//        pos_y++;
+//    }
+//}
 
 void Tab1_Camera_view::getRespone(QString respon){
     if((respon.indexOf("ok"))!=-1){

@@ -17,7 +17,6 @@ tab2_connecting::tab2_connecting(QWidget *parent) :
     connect(ui->pB_close, SIGNAL(clicked(bool)),this, SLOT(disconToHost()));//disconnect
     connect(ui->pPB_TEST, SIGNAL(clicked(bool)),this,SLOT(send_test_Data()));//testsend
 
-
     connect(pqsocket,SIGNAL(sigSocketRecv(QString)),this,SLOT(recvice_Data(QString)));//get pqsocket->tab2
 }
 

@@ -12,8 +12,8 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -26,13 +26,11 @@ public:
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *pVL_Cam;
-    QVBoxLayout *verticalLayout_2;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *label;
-    QLCDNumber *pLN_Xpos;
-    QHBoxLayout *horizontalLayout_3;
-    QLabel *label_2;
-    QLCDNumber *pLN_Ypos;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *label_3;
+    QLineEdit *pLE_MOVE;
+    QLabel *label_4;
+    QLineEdit *pLE_TO;
     QHBoxLayout *horizontalLayout_4;
     QPushButton *pPB_START;
     QPushButton *pPB_PAUSE;
@@ -53,66 +51,41 @@ public:
 
         horizontalLayout->addLayout(pVL_Cam);
 
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        label = new QLabel(Tab1_Camera_view);
-        label->setObjectName(QString::fromUtf8("label"));
-        QFont font;
-        font.setPointSize(30);
-        label->setFont(font);
-
-        horizontalLayout_2->addWidget(label);
-
-        pLN_Xpos = new QLCDNumber(Tab1_Camera_view);
-        pLN_Xpos->setObjectName(QString::fromUtf8("pLN_Xpos"));
-        QFont font1;
-        font1.setPointSize(40);
-        pLN_Xpos->setFont(font1);
-        pLN_Xpos->setDigitCount(3);
-
-        horizontalLayout_2->addWidget(pLN_Xpos);
-
-        horizontalLayout_2->setStretch(0, 1);
-        horizontalLayout_2->setStretch(1, 8);
-
-        verticalLayout_2->addLayout(horizontalLayout_2);
-
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        label_2 = new QLabel(Tab1_Camera_view);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setFont(font);
-
-        horizontalLayout_3->addWidget(label_2);
-
-        pLN_Ypos = new QLCDNumber(Tab1_Camera_view);
-        pLN_Ypos->setObjectName(QString::fromUtf8("pLN_Ypos"));
-        pLN_Ypos->setFont(font1);
-        pLN_Ypos->setDigitCount(3);
-
-        horizontalLayout_3->addWidget(pLN_Ypos);
-
-        horizontalLayout_3->setStretch(0, 1);
-        horizontalLayout_3->setStretch(1, 8);
-
-        verticalLayout_2->addLayout(horizontalLayout_3);
-
-        verticalLayout_2->setStretch(0, 2);
-        verticalLayout_2->setStretch(1, 2);
-
-        horizontalLayout->addLayout(verticalLayout_2);
-
         horizontalLayout->setStretch(0, 8);
-        horizontalLayout->setStretch(1, 2);
 
         verticalLayout_3->addLayout(horizontalLayout);
+
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        label_3 = new QLabel(Tab1_Camera_view);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        horizontalLayout_5->addWidget(label_3);
+
+        pLE_MOVE = new QLineEdit(Tab1_Camera_view);
+        pLE_MOVE->setObjectName(QString::fromUtf8("pLE_MOVE"));
+
+        horizontalLayout_5->addWidget(pLE_MOVE);
+
+        label_4 = new QLabel(Tab1_Camera_view);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        horizontalLayout_5->addWidget(label_4);
+
+        pLE_TO = new QLineEdit(Tab1_Camera_view);
+        pLE_TO->setObjectName(QString::fromUtf8("pLE_TO"));
+
+        horizontalLayout_5->addWidget(pLE_TO);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_5);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         pPB_START = new QPushButton(Tab1_Camera_view);
         pPB_START->setObjectName(QString::fromUtf8("pPB_START"));
+        QFont font;
+        font.setPointSize(30);
         pPB_START->setFont(font);
 
         horizontalLayout_4->addWidget(pPB_START);
@@ -139,8 +112,9 @@ public:
 
         verticalLayout_3->addLayout(horizontalLayout_4);
 
-        verticalLayout_3->setStretch(0, 9);
+        verticalLayout_3->setStretch(0, 8);
         verticalLayout_3->setStretch(1, 1);
+        verticalLayout_3->setStretch(2, 1);
 
         retranslateUi(Tab1_Camera_view);
 
@@ -150,8 +124,8 @@ public:
     void retranslateUi(QWidget *Tab1_Camera_view)
     {
         Tab1_Camera_view->setWindowTitle(QCoreApplication::translate("Tab1_Camera_view", "Form", nullptr));
-        label->setText(QCoreApplication::translate("Tab1_Camera_view", "X", nullptr));
-        label_2->setText(QCoreApplication::translate("Tab1_Camera_view", "Y", nullptr));
+        label_3->setText(QCoreApplication::translate("Tab1_Camera_view", "MOVE", nullptr));
+        label_4->setText(QCoreApplication::translate("Tab1_Camera_view", "TO", nullptr));
         pPB_START->setText(QCoreApplication::translate("Tab1_Camera_view", "START", nullptr));
         pPB_PAUSE->setText(QCoreApplication::translate("Tab1_Camera_view", "PAUSE", nullptr));
         pPB_CAPTURE->setText(QCoreApplication::translate("Tab1_Camera_view", "CAPTURE", nullptr));

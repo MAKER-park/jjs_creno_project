@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
     ui->setupUi(this);
-    ui->pTW_main->setCurrentIndex(0);
+    ui->pTW_main->setCurrentIndex(1);
     //exit button
     connect(ui->pPB_EXIT,SIGNAL(clicked()),qApp,SLOT(quit()));
 

@@ -15,6 +15,8 @@
 #include <QMediaRecorder>
 #include <QtSql>
 #include <QSqlDatabase>
+//msgbox
+#include <QMessageBox>
 
 namespace Ui {
 class Tab1_Camera_view;
@@ -42,7 +44,6 @@ private slots:
     void url_pause();
     void capture();
     void move();
-    void showTime();
 
     //for get data tab2
     void getRespone(QString);

@@ -249,6 +249,7 @@ DIST          = /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/s
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/qt_config.prf \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/spec_post.prf \
+		../jjs_project_qt/.qmake.stash \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/toolchain.prf \
@@ -491,6 +492,7 @@ Makefile: ../jjs_project_qt/jjs_project_qt.pro /Users/bagjaewan/Applications/5.1
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/qt_config.prf \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/toolchain.prf \
@@ -721,6 +723,7 @@ Makefile: ../jjs_project_qt/jjs_project_qt.pro /Users/bagjaewan/Applications/5.1
 /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/qt_config.prf:
 /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/macx-clang/qmake.conf:
 /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/exclusive_builds.prf:
 /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/mac/sdk.prf:
 /Users/bagjaewan/Applications/5.15.2/clang_64/mkspecs/features/toolchain.prf:
@@ -812,7 +815,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r jjs_project_qt.app
-	-$(DEL_FILE) /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-jjs_project_qt-Desktop_Qt_5_15_2_clang_64bit-Profile/jjs_project_qt.app.dSYM/Contents/Resources/DWARF/jjs_project_qt /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-jjs_project_qt-Desktop_Qt_5_15_2_clang_64bit-Profile/jjs_project_qt.app.dSYM/Contents/Info.plist
+	-$(DEL_FILE) /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-jjs_project_qt-Desktop_Qt_5_15_2_clang_64bit-Profile/jjs_project_qt.app.dSYM/Contents/Resources/DWARF/jjs_project_qt .qmake.stash /Users/bagjaewan/Documents/GitHub/jjs_creno_project/QT_study/build-jjs_project_qt-Desktop_Qt_5_15_2_clang_64bit-Profile/jjs_project_qt.app.dSYM/Contents/Info.plist
 	-$(DEL_FILE) Makefile
 
 
