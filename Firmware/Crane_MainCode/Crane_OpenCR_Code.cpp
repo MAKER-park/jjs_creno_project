@@ -95,9 +95,9 @@ void loop() {
 void hold(int value) {
   uint8_t now_value;
   uint8_t temp_value;
-  servo1.write(150);
+  servo1.writeMicroseconds(2400);
   delay(1);
-  servo2.write(150);
+  servo2.writeMicroseconds(2400);
   delay(10);
 
   dxl.setGoalPosition(DXL_ID, value);
@@ -107,9 +107,9 @@ void hold(int value) {
       dxl.torqueOff(DXL_ID);
       dxl.torqueOn(DXL_ID);
 
-      servo1.write(50);
+      servo1.writeMicroseconds(2100);
       delay(1);
-      servo2.write(50);
+      servo2.wwriteMicroseconds(2100);
       delay(10);
 
       dxl.setGoalPosition(DXL_ID, -now_value);
@@ -124,57 +124,45 @@ void hold(int value) {
       }
     }
     temp_value = dxl.getPresentPosition(DXL_ID);
-    if (temp_value >= defaultFloor - 20) {
-      dxl.torqueOff(DXL_ID);
-      dxl.torqueOn(DXL_ID);
+    if (temp_value >= defaultFloor - 20)
       break;
-    }
   }
-  servo1.write(50);
+  servo1.writeMicroseconds(2100);
   delay(1);
-  servo2.write(50);
+  servo2.writeMicroseconds(2100);
   delay(10);
 
   dxl.setGoalPosition(DXL_ID, defaultFloor);
   while (1) {
     temp_value = dxl.getPresentPosition(DXL_ID);
-    if (temp_value <= defaultFloor + 20) {
-      dxl.torqueOff(DXL_ID);
-      dxl.torqueOn(DXL_ID);
+    if (temp_value <= defaultFloor + 20)
       break;
-    }
   }
 }
 
 void putDown(int value) {
   uint8_t temp_value;
-  servo1.write(50);
+  servo1.writeMicroseconds(2100);
   delay(1);
-  servo2.write(50);
+  servo2.writeMicroseconds(2100);
   delay(10);
   
   dxl.setGoalPosition(DXL_ID, value);
   while (1) {
     temp_value = dxl.getPresentPosition(DXL_ID);
-    if (temp_value >= value - 20) {
-      dxl.torqueOff(DXL_ID);
-      dxl.torqueOn(DXL_ID);
+    if (temp_value >= value - 20)
       break;
-    }
   }
 
-  servo1.write(150);
+  servo1.writeMicroseconds(2400);
   delay(1);
-  servo2.write(150);
+  servo2.writeMicroseconds(2400);
   delay(10);
   
   dxl.setGoalPosition(DXL_ID, defaultFloor);
   while (1) {
     temp_value = dxl.getPresentPosition(DXL_ID);
-    if (temp_value <= defaultFloor + 20) {
-      dxl.torqueOff(DXL_ID);
-      dxl.torqueOn(DXL_ID);
+    if (temp_value <= defaultFloor + 20)
       break;
-    }
   }
 }
