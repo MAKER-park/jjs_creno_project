@@ -55,7 +55,7 @@ void Tab1_Camera_view::move(){
 
         if(move_x < 4 && move_y < 3 && move_z < 3 ){
             if(to_x < 4 && to_y < 3 && to_z < 3){
-                emit sigsend_tab1("[1]move"+ move +" "+ to + "\n");
+                emit sigsend_tab1("[1] move "+ move +"," + to + "\n");
             }else{
                 QMessageBox::warning(this,"경고","좌표값을 확인해 주세요.");
                 //msgbox check your location
@@ -72,9 +72,9 @@ void Tab1_Camera_view::move(){
 void Tab1_Camera_view::url_load(){
     if(IP.isEmpty()){
     }else{
-        QString url = "http://"+IP+":8080/?action=stream";
+        QString url = "http://10.10.141.250:8080/?action=stream";
         qDebug()<<"url : " << url;
-        QString url_2 = "http://"+IP+":8081/?action=stream";
+        QString url_2 = "http://10.10.141.250:8081/?action=stream";
         qDebug()<<"url : " << url_2;
         //webviewsetting for layout
     //    pWebView = new QWebEngineView(this);//계속하면 레이아웃이 계속 생성된다.

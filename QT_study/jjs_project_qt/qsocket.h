@@ -23,7 +23,7 @@ class qsocket: public QWidget
 
 public:
     qsocket();
-    QString IP = "10.10.141.250";
+    QString IP = "cloud.park-cloud.co19.kr";
     QString PORT = "5040";
     QString msg_data;
 

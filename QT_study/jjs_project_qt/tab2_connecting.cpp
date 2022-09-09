@@ -36,6 +36,9 @@ void tab2_connecting::recvice_Data(QString msg){
     }else if((msg.indexOf("compelete")) != -1){
         qDebug()<<"done command!\n";
         emit sendRespone(msg);
+    }//[QR] BICU1234567
+    else if((msg.indexOf("[QR]")) != -1){
+        qDebug()<<"get QR " << msg;
     }
 
 }
@@ -94,7 +97,7 @@ void tab2_connecting::disconToHost(){
 
 //send test data!
 bool tab2_connecting::send_test_Data(){
-    pqsocket->Send_test_Data("[1] move#2,1#1,1\n");
+    pqsocket->Send_test_Data("[1] move 1,1,1,0,1,1\n");
 }
 
 //realsend
