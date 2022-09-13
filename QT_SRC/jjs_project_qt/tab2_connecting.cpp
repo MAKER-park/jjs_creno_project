@@ -1,6 +1,16 @@
 #include "tab2_connecting.h"
 #include "ui_tab2_connecting.h"
 
+/*
+ [2] <QR> BICU1234561
+[2] <QR> BICU7891012
+[2] <QR> AICR2345673
+[2] <QR> AICU8901234
+[2] <QR> AICU4567895
+[2] <QR> BICU0123456
+[2] <QR> BICU6789017
+[2] <QR> DICU2345678
+ */
 static inline QByteArray IntToArray(qint32 source);
 
 tab2_connecting::tab2_connecting(QWidget *parent) :
@@ -37,8 +47,10 @@ void tab2_connecting::recvice_Data(QString msg){
         qDebug()<<"done command!\n";
         emit sendRespone(msg);
     }//[QR] BICU1234567
-    else if((msg.indexOf("[QR]")) != -1){
+    else if((msg.indexOf("QR")) != -1){
         qDebug()<<"get QR " << msg;
+        QString QR_INFO = msg.mid(9,11);//WORKING!
+        qDebug()<<"QR : " << QR_INFO;
     }
 
 }

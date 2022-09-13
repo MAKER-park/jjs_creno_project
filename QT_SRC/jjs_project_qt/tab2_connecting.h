@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QtDebug>
 #include <QTime>
+#include <QMap>
 
 #include <QtNetwork>
 #include <QTcpSocket>
