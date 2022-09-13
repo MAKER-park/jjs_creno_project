@@ -6,11 +6,13 @@
 #include <QtDebug>
 #include <QTime>
 #include <QMap>
+#include <QVector>
 
 #include <QtNetwork>
 #include <QTcpSocket>
 
 #include "qsocket.h"
+
 
 namespace Ui {
 class tab2_connecting;
@@ -25,6 +27,20 @@ public:
     ~tab2_connecting();
     QString dlgLineStr;
     qsocket *pqsocket;
+    /*
+     [2] <QR> BICU1234561 2,0,1
+    [2] <QR> BICU7891012  1,0,1
+    [2] <QR> AICR2345673  2,1,1
+    [2] <QR> AICU8901234  1,1,1
+    [2] <QR> AICU4567895  2,0,2
+    [2] <QR> BICU0123456  1,0,2
+    [2] <QR> BICU6789017  2,1,2
+    [2] <QR> DICU2345678  1,1,2
+     */
+    QString QR_INFO;
+    QMap<QString, QString> QR_POS;
+    QVector<QString> POS_REF;
+    int POS_COUNTER = 0;
 
 private:
     Ui::tab2_connecting *ui;

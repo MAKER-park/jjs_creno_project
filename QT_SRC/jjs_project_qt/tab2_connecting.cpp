@@ -2,14 +2,14 @@
 #include "ui_tab2_connecting.h"
 
 /*
- [2] <QR> BICU1234561
-[2] <QR> BICU7891012
-[2] <QR> AICR2345673
-[2] <QR> AICU8901234
-[2] <QR> AICU4567895
-[2] <QR> BICU0123456
-[2] <QR> BICU6789017
-[2] <QR> DICU2345678
+ [2] <QR> BICU1234561 2,0,1
+[2] <QR> BICU7891012  1,0,1
+[2] <QR> AICR2345673  2,1,1
+[2] <QR> AICU8901234  1,1,1
+[2] <QR> AICU4567895  2,0,2
+[2] <QR> BICU0123456  1,0,2
+[2] <QR> BICU6789017  2,1,2
+[2] <QR> DICU2345678  1,1,2
  */
 static inline QByteArray IntToArray(qint32 source);
 
@@ -28,6 +28,15 @@ tab2_connecting::tab2_connecting(QWidget *parent) :
     connect(ui->pPB_TEST, SIGNAL(clicked(bool)),this,SLOT(send_test_Data()));//testsend
 
     connect(pqsocket,SIGNAL(sigSocketRecv(QString)),this,SLOT(recvice_Data(QString)));//get pqsocket->tab2
+    //(7,"2,0,1","1,0,1","2,1,1","1,1,1","2,0,2","1,0,2","2,1,2","1,1,2")
+    POS_REF.append("2,0,1");
+    POS_REF.append("1,0,1");
+    POS_REF.append("2,1,1");
+    POS_REF.append("1,1,1");
+    POS_REF.append("2,0,2");
+    POS_REF.append("1,0,2");
+    POS_REF.append("2,1,2");
+    POS_REF.append("1,1,2");
 }
 
 tab2_connecting::~tab2_connecting()
@@ -47,10 +56,14 @@ void tab2_connecting::recvice_Data(QString msg){
         qDebug()<<"done command!\n";
         emit sendRespone(msg);
     }//[QR] BICU1234567
-    else if((msg.indexOf("QR")) != -1){
+    else if((msg.indexOf("<QR>")) != -1){
         qDebug()<<"get QR " << msg;
-        QString QR_INFO = msg.mid(9,11);//WORKING!
+        QR_INFO = msg.mid(9,11);//WORKING!
         qDebug()<<"QR : " << QR_INFO;
+        POS_COUNTER++;
+        //<QR_DB> BICU6789012 2,0,1
+        qDebug()<<"<QR_DB> "+QR_INFO+" "+POS_REF[POS_COUNTER];
+        pqsocket->Send_test_Data("<QR_DB> "+QR_INFO+" "+POS_REF[POS_COUNTER]);
     }
 
 }
@@ -114,5 +127,6 @@ bool tab2_connecting::send_test_Data(){
 
 //realsend
 void tab2_connecting::send_Data(QString msg){
+    qDebug()<<"send data" << msg;
     pqsocket->Send_test_Data(msg);
 }
