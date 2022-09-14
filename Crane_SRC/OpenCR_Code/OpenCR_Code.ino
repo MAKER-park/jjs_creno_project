@@ -12,7 +12,7 @@
 #define End 7
 
 #define defaultFloor 0
-#define firstFloor -9500
+#define firstFloor -9600
 #define secondFloor -6800
 
 using namespace ControlTableItem;
