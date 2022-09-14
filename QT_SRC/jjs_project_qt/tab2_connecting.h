@@ -38,7 +38,7 @@ public:
     [2] <QR> DICU2345678  1,1,2
      */
     QString QR_INFO;
-    QMap<QString, QString> QR_POS;
+    QMap<QString, QString> QR_MAP;
     QVector<QString> POS_REF;
     int POS_COUNTER = 0;
 
@@ -54,9 +54,7 @@ private slots:
     bool connectToHost(QString host, QString port);//connection to server
     void disconToHost(); //disconnection to server
     bool send_test_Data(); //send test message
-
     void send_Data(QString);
-
     void recvice_Data(QString);//get recive data
 
 //public slots:
@@ -64,7 +62,6 @@ private slots:
 
 signals: //send variable or funcution!
     void sendRespone(QString);//commend respon send to tab1
-
     void sigsend_IP(QString);//send IP for stream
 };
 

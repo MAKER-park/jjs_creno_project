@@ -131,9 +131,9 @@ void Tab1_Camera_view::capture(){
 //}
 
 void Tab1_Camera_view::getRespone(QString respon){
-    if((respon.indexOf("ok"))!=-1){
+    if((respon.indexOf("running"))!=-1){
         ui->pPB_MOVE->setEnabled(false);
-    }else if((respon.indexOf("compelete"))!=-1){
+    }else if((respon.indexOf("complete"))!=-1){
         ui->pPB_MOVE->setEnabled(true);
     }
 }

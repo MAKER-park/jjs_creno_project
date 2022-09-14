@@ -40,9 +40,6 @@ public slots:
 
 signals:
     void sigSocketRecv(QString);
-
-
-
 };
 
 #endif // QSOCKET_H

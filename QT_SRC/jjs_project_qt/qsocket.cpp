@@ -34,10 +34,11 @@ bool qsocket::DisconToHost(){
 
 void qsocket::Send_test_Data(QString msg){
 
-    if(socket->state() == QAbstractSocket::ConnectedState){//check connection! & test data send
-        socket->write(msg.toUtf8());
-    }else{
-        QMessageBox msg_box;
-        msg_box.setInformativeText("check your connection");
-    }
+//    if(socket->state() == QAbstractSocket::ConnectedState){//check connection! & test data send
+//        socket->write(msg.toUtf8());
+//    }else{
+//        QMessageBox msg_box;
+//        msg_box.setInformativeText("check your connection");
+//    }
+    socket->write(msg.toUtf8());
 }
