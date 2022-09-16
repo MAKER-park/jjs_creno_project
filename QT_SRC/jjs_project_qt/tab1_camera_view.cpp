@@ -121,20 +121,18 @@ void Tab1_Camera_view::capture(){
     }
 }
 
-//void Tab1_Camera_view::showTime(){
-//    ui->pLN_Xpos->display(pos_x++);
-//    ui->pLN_Ypos->display(pos_y);
-//    if(pos_x > 100){
-//        pos_x = 0;
-//        pos_y++;
-//    }
-//}
-
 void Tab1_Camera_view::getRespone(QString respon){
     if((respon.indexOf("running"))!=-1){
         ui->pPB_MOVE->setEnabled(false);
     }else if((respon.indexOf("complete"))!=-1){
         ui->pPB_MOVE->setEnabled(true);
+    }else if((respon.indexOf("danger"))!=-1){
+        ui->pPB_MOVE->setEnabled(false);
+        int ret = QMessageBox::critical(this, tr("My Application"),
+                                       tr("\t위험!\t\t\n"
+                                          " 컨테이너 주변에 사람이 존재 합니다.\n"
+                                          "      확인 부탁 드립니다.\t\n")
+                                       );
     }
 }
 

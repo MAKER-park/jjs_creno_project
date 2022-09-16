@@ -92,6 +92,14 @@ void tab2_connecting::recvice_Data(QString msg){
             POS_COUNTER = 0;
         }
         qDebug()<<"COUNTER = " << POS_COUNTER;
+    }else if(msg.indexOf("danger")){
+        //if you get danger
+        qDebug()<<"get danger!\n";
+        emit sendRespone(msg);
+    }else if(msg.indexOf("safe")){
+        //if you get safe
+        qDebug()<<"get safe!\n";
+        emit sendRespone(msg);
     }
 
 }
