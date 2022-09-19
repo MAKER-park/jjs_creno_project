@@ -8,6 +8,9 @@
 #include <std_msgs/UInt16.h>
 #include <std_msgs/String.h>
 #include <std_msgs/Empty.h>
+using namespace std;
+
+//#define DEBUG_SERIAL Serial
 
 #define X_STEP 2
 #define X_DIR 5
@@ -30,8 +33,11 @@ ros::NodeHandle nh;
 void* recv_msg(void* arg);
 
 std_msgs::UInt16 int_msg;
+std_msgs::Empty str_msg;
 ros::Publisher opencr_hold("/grep_hold", &int_msg);
 ros::Publisher opencr_putDown("/grep_putDown", &int_msg);
+ros::Publisher complete_pub("complete", &str_msg);
+ros::Publisher danger_pub("danger", &str_msg);
 
 int x = 0, y = 0;
 int location[] = {0, 0, 0, 0, 0, 0}; //최댓값 2,1,2
@@ -43,28 +49,40 @@ void HOME(); //초기상태로 돌아오는 함수
 void crane_move(int x_value, int y_value); //스텝모터를 좌표값으로 보내는 함수
 void Split(String sData, char cSeparator); //파싱함수
 int step_dir(int value, int dir); //모터 방향제어
+void Millis(unsigned long Delay);
 int flag = RESET;
 bool input_value = false;
 bool emergency_status = false;
+//unsigned long emer_start = 0;
+//unsigned long emer_old = 0;
+int safe_cnt;
 
 void step_move(const std_msgs::String &cmd_msg) { //좌표값을 파싱으로 x축, y축 값에따라 크레인 이동(컨테이너 올릴 좌표)
   if (flag == READY) {
     Split(cmd_msg.data, ',');
     crane_move(location[0], location[1]);
     int_msg.data = location[2];
-    while (1) {
-      if (emergency_status == false) {
-        opencr_hold.publish(&int_msg);
-        break;
-      }
-    }
+    //    while (1) {
+    if (emergency_status == false) {
+      opencr_hold.publish(&int_msg);
+      //        break;
+    } else
+      danger_pub.publish(&str_msg);
+    //    }
   }
 }
+
 void next_move(const std_msgs::Empty & cmd_msg) { //좌표값을 파싱으로 x축, y축 값에따라 크레인 이동(컨테이너 올릴 좌표)
   if (flag == READY) {
     crane_move(location[3], location[4]);
     int_msg.data = location[5];
-    opencr_putDown.publish(&int_msg);
+    //    while (1) {
+    if (emergency_status == false) {
+      opencr_putDown.publish(&int_msg);
+      //        break;
+    } else
+      danger_pub.publish(&str_msg);
+    //    }
   }
 }
 
@@ -78,9 +96,26 @@ void home_cb(const std_msgs::Empty & msg) { //초기상태로 돌아오는 함�
 
 void emergency(const std_msgs::String & msg) { //초기상태로 돌아오는 함수
   String str_tmp = msg.data;
-  if (str_tmp == alarm_str[0])
+  //emer_old = emer_start;
+
+  if (alarm_str[0] == str_tmp)
+    safe_cnt++;
+  else if (alarm_str[1] == str_tmp)
+    safe_cnt = 0;
+
+  //printf("%d \n", emergency_status);
+}
+
+void emerg_status(void) {
+  //  emer_start = millis();
+  //    if (emer_start - emer_old > 1000)
+  //    emergency_status = false;
+  //    else if (emer_start - emer_old < 1000)
+  //    emergency_status = true;
+
+  if (safe_cnt > 10)
     emergency_status = false;
-  else if (str_tmp == alarm_str[1])
+  else
     emergency_status = true;
 }
 
@@ -88,9 +123,12 @@ void emergency(const std_msgs::String & msg) { //초기상태로 돌아오는 �
 ros::Subscriber<std_msgs::String> sub_step_move("/step_move", step_move);
 ros::Subscriber<std_msgs::Empty> sub_next_move("/next_move", next_move);
 ros::Subscriber<std_msgs::Empty> sub_home("/home", home_cb);
-ros::Subscriber<std_msgs::String> alram("/alarm", emergency);
+ros::Subscriber<std_msgs::String> alarm("/alarm", emergency);
 
 void setup() {
+
+  //DEBUG_SERIAL.begin(57600);
+
   pinMode(X_STEP, OUTPUT);
   pinMode(X_DIR, OUTPUT);
   pinMode(X_ENABLE, OUTPUT);
@@ -114,16 +152,31 @@ void setup() {
   nh.subscribe(sub_step_move);
   nh.subscribe(sub_next_move);
   nh.subscribe(sub_home);
+  nh.subscribe(alarm);
 
   nh.advertise(opencr_hold);
   nh.advertise(opencr_putDown);
+  nh.advertise(danger_pub);
 
   HOME();
 }
 
 void loop() {
   nh.spinOnce();
-  delay(1);
+  emerg_status();
+  delay(10);
+}
+
+void Millis(unsigned long Delay)
+{
+  unsigned long pretime = millis();
+  while (1)
+  {
+    if (millis() - pretime >= Delay)
+    {
+      break;
+    }
+  }
 }
 
 void HOME() {

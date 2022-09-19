@@ -12,7 +12,7 @@
 #define End 7
 
 #define defaultFloor 0
-#define firstFloor -9600
+#define firstFloor -9800
 #define secondFloor -6800
 
 using namespace ControlTableItem;
@@ -23,7 +23,7 @@ const uint8_t DXL_ID1 = 1;
 const uint8_t DXL_ID2 = 2;
 const float DXL_PROTOCOL_VERSION = 2.0;
 
-ros::NodeHandle  nh;
+ros::NodeHandle nh;
 std_msgs::Empty str_msg;
 ros::Publisher next_pub("next_move", &str_msg);
 ros::Publisher complete_pub("complete", &str_msg);
@@ -33,6 +33,18 @@ Servo servo1;
 Servo servo2;
 
 int result[3] = { defaultFloor, firstFloor, secondFloor };
+
+void Millis(unsigned long Delay)
+{
+  unsigned long pretime = millis();
+  while (1)
+  {
+    if (millis() - pretime >= Delay)
+    {
+      break;
+    }
+  }
+}
 
 void hold(int value);
 void putDown(int value);
@@ -96,41 +108,40 @@ void loop() {
 void hold(int value) {
 
   servo1.writeMicroseconds(2400);
-  delay(1);
+  Millis(1);
   servo2.writeMicroseconds(2400);
-  delay(2500);
+  Millis(3000);
 
   dxl.setGoalPosition(DXL_ID1, value);
   dxl.setGoalPosition(DXL_ID2, value);
-  delay(2500);
+  Millis(3000);
 
   servo1.writeMicroseconds(2100);
-  delay(1);
+  Millis(1);
   servo2.writeMicroseconds(2100);
-  delay(2500);
+  Millis(3000);
 
   dxl.setGoalPosition(DXL_ID1, defaultFloor);
   dxl.setGoalPosition(DXL_ID2, defaultFloor);
-  delay(2500);
+  Millis(3000);
 }
 
 void putDown(int value) {
 
   servo1.writeMicroseconds(2100);
-  delay(1);
+  Millis(1);
   servo2.writeMicroseconds(2100);
-  delay(2500);
+  Millis(3000);
 
   dxl.setGoalPosition(DXL_ID1, value);
   dxl.setGoalPosition(DXL_ID2, value);
-  delay(2500);
+  Millis(3000);
 
   servo1.writeMicroseconds(2400);
-  delay(1);
+  Millis(1);
   servo2.writeMicroseconds(2400);
-  delay(2500);
+  Millis(3000);
 
   dxl.setGoalPosition(DXL_ID1, defaultFloor);
   dxl.setGoalPosition(DXL_ID2, defaultFloor);
-  delay(2500);
 }
