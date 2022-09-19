@@ -35,15 +35,15 @@ class StrmBar extends HookWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Mjpeg(
-                      isLive: isRunning.value,
-                      error: (context, error, stack) {
+                    Mjpeg(   // Mjpeg 라이브러리 함수 호출
+                      isLive: isRunning.value,   // 주소와 원활하게 통신해서 영상 출력이 가능한지 확인
+                      error: (context, error, stack) {   // 에러 메시지 
                         print(error);
                         print(stack);
                         return Text(error.toString(),
                             style: TextStyle(color: Colors.red));
                       },
-                      stream: 'http://10.10.141.250:8080/?action=stream',
+                      stream: 'http://10.10.141.250:8080/?action=stream', // 영상 송출할 스트리밍 주소 선언
                     ),
                     Mjpeg(
                       isLive: isRunning.value,
