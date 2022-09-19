@@ -9,9 +9,9 @@ class Login extends StatefulWidget {
 
 class _Login extends State<Login> {
   final formKey = new GlobalKey<FormState>();
-  String password = "250";
+  String password = "250";       // String형 패스워드 설정 "250"으로 초기화
 
-  String get value => "250";
+  String get value => "250";     // if문에 사용하기위해 값을 password와 동일시함
 
   @override
   Widget build(BuildContext context) {
@@ -40,23 +40,23 @@ class _Login extends State<Login> {
                           });
                         },
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
+                          if (value == null || value.isEmpty) {  // 비밀번호 입력 값이 null(공백) 상태 일시 비밀번호를 입력하라는 메시지 발생
                             return 'Please Enter Some Password';
                           }
-                          if (!RegExp('[0-9]').hasMatch(value)) {
+                          if (!RegExp('[0-9]').hasMatch(value)) { // 비밀번호 자릿수를 최대 9자리로 설정
                             return 'MAX';
                           }
                           return null;
                         }),
                     ElevatedButton(
-                      onPressed: () {
+                      onPressed: () { 
                         if (formKey.currentState!.validate()) {
                           formKey.currentState!.save();
 
                           // If the form is valid, display a SnackBar. In the real world,
                           // you'd often call a server or save the information in a database.
                         }
-                        if (password == value) {
+                        if (password == value) {  // password(설정 비밀번호) "250" value(입력 비밀번호) "250" 둘다 같으면 스트리밍 화면으로 넘어감
                           Navigator.push(
                               context,
                               CupertinoPageRoute(
@@ -64,7 +64,7 @@ class _Login extends State<Login> {
                           ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(content: Text('Connected')));
                         }
-                        if (password != value)
+                        if (password != value)   // password와 value 가 틀렸을 경우 틀린걸 알려주는 메시지 출력
                         {
                           ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(content: Text('Wrong Password')));
