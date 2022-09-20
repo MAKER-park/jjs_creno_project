@@ -8,6 +8,7 @@
 #include <string>
 #include <stdio.h>
 #include <unistd.h>
+#include <vector>
 #include <stdlib.h>
 #include <pthread.h>
 #include <arpa/inet.h>
@@ -27,6 +28,7 @@ void error_handling(const char* msg);
 void mega_callback(const std_msgs::String &input);
 void mega_status(const std_msgs::Empty &status_info);
 void from_QR_Data(const std_msgs::String &input);
+void send_danger(const std_msgs::String &input);
 
 char name[NAME_SIZE] = "[2]";
 char msg[BUF_SIZE];
@@ -37,12 +39,16 @@ char* temp[10];
 bool complete_status = false;
 bool running_status = false;
 bool QR_status = false;
+bool db_status = false;
+bool danger_status = false;
 
 string input_old = "";
 int sock;
 struct sockaddr_in serv_addr;
 pthread_t snd_thread, rcv_thread;
 void* thread_return;
+
+vector<string>ct(8);
 
 class ros_server_topic
 {
@@ -51,6 +57,7 @@ class ros_server_topic
 		{
 			mega_pub = _n.advertise<std_msgs::String>("/step_move", 100);
 			mega_sub = _n.subscribe("/complete", 100, &ros_server_topic::mega_status, this);
+			mega_sub = _n.subscribe("/danger", 100, &ros_server_topic::send_danger, this);
 			QR_sub = _n.subscribe("/QR_Code", 100, &ros_server_topic::from_QR_Data, this);
 		}
 
@@ -66,10 +73,9 @@ class ros_server_topic
 		}
 
 		void from_QR_Data(const std_msgs::String &input) {
-			cout << QR_status << endl;
-			if(QR_status == false){
+			//cout << QR_status << endl;
+			/*if(QR_status == false){
 				if(input.data != input_old){
-					cout <<"fuck!!!!!!!"<<endl;
 					input_old=input.data;
 					QR_Data = input.data;
 					QR_status = true;
@@ -77,16 +83,45 @@ class ros_server_topic
 					send_msg((void*)&sock);
 				}
 			}
-			/*if(QR_status == false) {
+			if(QR_status == false) {
 			  QR_Data = input.data;
 			  QR_status = true;
-			  }*/
+			  }
+			*/
+			int i;
+			//cout << "hihi" << endl;
+			if(QR_status == false) {
+				string tmp = input.data;
+				//cout << "inin" << endl;
+				//if(ct.empty() == false) {
+					int ct_size = ct.size();
+					for(i = 0; i < ct_size; i++) {
+						if(ct[i] == tmp)
+							break;
+					}
+					if(i == ct_size) {
+						ct.push_back(tmp);
+						QR_Data = input.data;
+						QR_status = true;
+						send_msg((void*)&sock);
+					}
+				//}
+			}
 		}
+
+		void send_danger(const std_msgs::Empty &input) {		
+			danger_status = true;
+			cout << "danger!!!" << endl;
+			send_msg((void*)&sock);
+		}
+
 
 		ros::NodeHandle _n;
 		ros::Publisher mega_pub;
 		ros::Subscriber mega_sub;
 		ros::Subscriber QR_sub;
+		ros::Subscriber danger_sub;
+
 };
 
 int main(int argc, char* argv[]) {
@@ -128,8 +163,7 @@ void* send_msg(void* arg) {
 	int sock = *((int*)arg);
 	char name_msg[NAME_SIZE+BUF_SIZE];
 	//while(1) {
-	cout << "send fuck!!" << endl;
-	cout << "QR : " << QR_status << " comple_status : " << complete_status << endl;
+	//cout << "QR : " << QR_status << " comple_status : " << complete_status << endl;
 	//fgets(msg, BUF_SIZE, stdin);
 	if(!strcmp(msg, "q\n") || !strcmp(msg, "Q\n")) {
 		close(sock);
@@ -142,20 +176,19 @@ void* send_msg(void* arg) {
 	write(sock, name_msg, strlen(name_msg));
 	}*/
 	if(complete_status == true) {
-		strcpy(msg, "complete");
+		strcpy(msg, "complete\n");
 		sprintf(name_msg, "%s %s", name, msg);
 		write(sock, name_msg, strlen(name_msg));
 		complete_status = false;
 	}
 	if(running_status == true) {
-		strcpy(msg, "running");
+		strcpy(msg, "running\n");
 		sprintf(name_msg, "%s %s", name, msg);
 		write(sock, name_msg, strlen(name_msg));
 		running_status = false;
 	}
 	if(QR_status == true) {
 		int index = 0;
-		cout << "fuck!!!" << endl;
 		while(index <= 100) {
 			msg[index] = QR_Data[index];
 			index++;
@@ -163,6 +196,18 @@ void* send_msg(void* arg) {
 		sprintf(name_msg, "%s <QR> %s \n", name, msg);
 		write(sock, name_msg, strlen(name_msg));
 		QR_status = false;
+	}
+	if(db_status == true) {
+		strcpy(msg, "DB_OK\n");
+		sprintf(name_msg, "%s %s", name, msg);
+		write(sock, name_msg, strlen(name_msg));
+		db_status = false;
+	}
+	if(danger_status == true) {
+		strcpy(msg, "danger\n");
+		sprintf(name_msg, "%s %s", name, msg);
+		write(sock, name_msg, strlen(name_msg));
+		danger_status = false;
 	}
 	//}
 	return NULL;
@@ -174,11 +219,13 @@ void* recv_msg(void* arg) {
 	int str_len;
 
 	std_msgs::String send_message;
-	string search = "move";
+	string search_move = "move";
+	string search_db = "QR_DB";
 	ros_server_topic ROSProject;
 	string recv_data;
 	string send_data;
-	int result = 0;
+	int result_move = 0;
+	int result_db = 0;
 	size_t pos;	
 
 	while(1) {
@@ -188,15 +235,27 @@ void* recv_msg(void* arg) {
 		name_msg[str_len] = 0;
 
 		recv_data = name_msg;
+		pos = recv_data.find('<');
+		recv_data = recv_data.substr(pos + 1, 5);
+		cout << "recv_data : " << recv_data << endl;
+
+		result_db = recv_data.compare(search_db);
+
+		cout << "result_db : " << result_db << endl;
+
+		
+		recv_data = name_msg;
 		pos = recv_data.find(']');
 		recv_data = recv_data.substr(pos + 2, 4);
 		cout << "recv_data : " << recv_data << endl;
 
-		result = recv_data.compare(search);
+		result_move = recv_data.compare(search_move);
 
-		cout << "result : " << result << endl;
+		cout << "result_move : " << result_move << endl;
+		
 
-		if(result == 0) {
+		
+		if(result_move == 0) {
 			send_data = name_msg;
 			pos = send_data.find(']');
 			send_data = send_data.substr(pos + 7);
@@ -205,6 +264,11 @@ void* recv_msg(void* arg) {
 			ROSProject.mega_callback(send_message);
 			cout << "send topic \n" << endl;
 			running_status = true;
+			send_msg((void*)&sock);
+		}
+		else if(result_db == 0) {
+			db_status = true;
+			cout << "db ok" << endl;
 			send_msg((void*)&sock);
 		}
 		fputs(name_msg, stdout);
