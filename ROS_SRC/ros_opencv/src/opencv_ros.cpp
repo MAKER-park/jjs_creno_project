@@ -14,7 +14,7 @@ using namespace std;
 
 int danger_cnt;
 int safe_cnt;
-//int count_safe;
+// int count_safe;
 
 void alarm_callback(const std_msgs::String &input);
 
@@ -23,37 +23,37 @@ class alarm_topic
 public:
 	alarm_topic()
 	{
-		alarm_pub = alarm_n.advertise<std_msgs::String>("/alarm", 100);	
+		alarm_pub = alarm_n.advertise<std_msgs::String>("/alarm", 100);
 	}
-	
-	void alarm_callback(const std_msgs::String &input) {
+
+	void alarm_callback(const std_msgs::String &input)
+	{
 		alarm_pub.publish(input);
 	}
-	
-	ros::NodeHandle alarm_n; 
+
+	ros::NodeHandle alarm_n;
 	ros::Publisher alarm_pub;
 };
-
 
 Rect r1;
 Rect r2;
 Rect r3;
 
-vector<vector<int>> myColors{ {83,188,208,130,255,255}, // blue
-							  {22,88,153,32,255,255} }; // Yellow
-//vector<Scalar> myColorValues{ {0, 0, 255}, {255,255,0} }; // blue, Yellow
+vector<vector<int>> myColors{{83, 188, 208, 130, 255, 255}, // blue
+							 {22, 88, 153, 32, 255, 255}};	// Yellow
+// vector<Scalar> myColorValues{ {0, 0, 255}, {255,255,0} }; // blue, Yellow
 Mat img, imgDil;
 
-void getContours(Mat imgDil) {
-	
+void getContours(Mat imgDil)
+{
+
 	alarm_topic alarm;
-	//std_msgs::String send_warning;
+	// std_msgs::String send_warning;
 	std_msgs::String send_danger;
 	std_msgs::String send_Safe;
-	//send_warning.data = "Warning";
+	// send_warning.data = "Warning";
 	send_danger.data = "Danger";
 	send_Safe.data = "Safe";
-	
 
 	vector<vector<Point>> contours;
 	vector<Vec4i> hierarchy;
@@ -63,27 +63,26 @@ void getContours(Mat imgDil) {
 	for (int i = 0; i < contours.size(); i++)
 	{
 		int area = contourArea(contours[i]);
-		//cout << area << endl;
-
+		// cout << area << endl;
 
 		vector<vector<Point>> conPoly(contours.size());
 		vector<Rect> boundRect(contours.size());
 
-		if ((area > 300))//(area > 300) || (5000 < area)
+		if ((area > 300)) //(area > 300) || (5000 < area)
 		{
 			float peri = arcLength(contours[i], true);
 			approxPolyDP(contours[i], conPoly[i], 0.02 * peri, true);
 
-			//cout << conPoly[i].size() << endl;
+			// cout << conPoly[i].size() << endl;
 
 			drawContours(img, conPoly, i, Scalar(255, 0, 255), 2);
-			//line(img, conPoly[i][0], conPoly[i][3], Scalar(255, 255, 0), 5);
+			// line(img, conPoly[i][0], conPoly[i][3], Scalar(255, 255, 0), 5);
 
 			boundRect[i] = boundingRect(conPoly[i]);
-			//rectangle(img, boundRect[i].tl(), boundRect[i].br(), Scalar(0, 255, 0), 5);
+			// rectangle(img, boundRect[i].tl(), boundRect[i].br(), Scalar(0, 255, 0), 5);
 		}
 
-		if (area < 1000)//yellow cap
+		if (area < 1000) // yellow cap
 		{
 			rectangle(img, Point(boundRect[i].tl().x, boundRect[i].tl().y), Point(boundRect[i].br().x, boundRect[i].br().y), Scalar(255, 255, 0), 5);
 			r1 = Rect(Point(boundRect[i].tl().x, boundRect[i].tl().y), Point(boundRect[i].br().x, boundRect[i].br().y));
@@ -98,21 +97,19 @@ void getContours(Mat imgDil) {
 			r3 = Rect(Point(boundRect[i].tl().x - 100, boundRect[i].tl().y - 100), Point(boundRect[i].br().x + 100, boundRect[i].br().y + 100));
 
 		}*/
-		
-			rectangle(img, Point(180, 80), Point(450, 210), Scalar(0, 000, 255), 5); // °æ°í
-			r2 = Rect(Point(180, 80), Point(330, 230));
 
-			rectangle(img, Point(130, 30), Point(500, 260), Scalar(0, 255, 255), 5); // À§Çè
-			r3 = Rect(Point(130, 30), Point(380, 280));
+		rectangle(img, Point(180, 80), Point(450, 210), Scalar(0, 000, 255), 5); // °æ°í
+		r2 = Rect(Point(180, 80), Point(330, 230));
 
-
+		rectangle(img, Point(130, 30), Point(500, 260), Scalar(0, 255, 255), 5); // À§Çè
+		r3 = Rect(Point(130, 30), Point(380, 280));
 
 		Rect warning = r1 & r3;
 		Rect danger = r1 & r2;
-		//cout << "r1 : " << r1 << endl;
-		//cout << "r2 : " << r2 << endl;
-		//cout << "r3 : " << r3 << endl;
-		//cout << "r4 : " << warning.area() << endl;
+		// cout << "r1 : " << r1 << endl;
+		// cout << "r2 : " << r2 << endl;
+		// cout << "r3 : " << r3 << endl;
+		// cout << "r4 : " << warning.area() << endl;
 
 		/*
 		if (warning.area() > 0 && danger.area() == 0)
@@ -121,7 +118,7 @@ void getContours(Mat imgDil) {
 			alarm.alarm_callback(send_warning);
 		}
 		*/
-		
+
 		if (warning.area() > 0 && danger.area() > 0)
 		{
 			danger_cnt++;
@@ -130,22 +127,23 @@ void getContours(Mat imgDil) {
 		{
 			safe_cnt++;
 		}
-		//cout << "danger : " << danger_cnt << endl;
-		//cout << "safe : " << safe_cnt << endl;
+		// cout << "danger : " << danger_cnt << endl;
+		// cout << "safe : " << safe_cnt << endl;
 
-		if (danger_cnt > 2) {
+		if (danger_cnt > 2)
+		{
 			cout << "Danger" << endl;
 			alarm.alarm_callback(send_danger);
 			danger_cnt = 0;
 			safe_cnt = 0;
 		}
-		else if ((safe_cnt/2) > 300) {	
+		else if ((safe_cnt / 2) > 300)
+		{
 			cout << "Safe" << endl;
 			alarm.alarm_callback(send_Safe);
 			danger_cnt = 0;
 			safe_cnt = 0;
 		}
-
 	}
 }
 
@@ -164,26 +162,27 @@ void findColor(Mat img)
 	}
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[])
+{
 
 	ros::init(argc, argv, "alarm");
 	alarm_topic alarm;
-	//VideoCapture cap("http://cloud.park-cloud.co19.kr:8091/?action=stream");
+	// VideoCapture cap("http://cloud.park-cloud.co19.kr:8091/?action=stream");
 	VideoCapture cap("http://10.10.141.250:8080/?action=stream");
-	//VideoCapture cap(0);
-	
+	// VideoCapture cap(0);
 
-	while (true) {
-		
+	while (true)
+	{
+
 		ros::spinOnce();
 		cap.read(img);
 		findColor(img);
-		
+
 		imshow("Image", img);
-		
+
 		waitKey(1);
-		if(waitKey(1) == 27)
-				break;
+		if (waitKey(1) == 27)
+			break;
 	}
 	return 0;
 }
